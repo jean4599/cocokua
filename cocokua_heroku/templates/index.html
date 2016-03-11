@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link href="../static/css/index.css" rel="stylesheet">
+<link href="../static/css/infoVideo.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<div id="mainmenu">
+	<div class="space"></div>
+	<div class="menubox">
+		<h2>Create New Room</h2><br>
+		Youtube Video URL<br>
+		<input id="videoURL"></input><br>
+		<button id="createbtn">Create</button><br>
+		<br><br>
+		Enter a Youtube video URL to create a CoCoKUA room. Then share the room URL to invite your friends and enjoy.
+	</div>
+	<div class="space"></div>
+	<div class="menubox">
+		<h2>Go Into Room</h2><br>
+		CoCoKUA Video Room URL<br>
+		<input id="roomURL"></input><br>
+		<button id="gobtn">Go</button><br>
+		<br><br>
+		Enter the video room URL that your friends share with you. Then watch video and chat with your friends.
+	</div>
+	<!-- <div class="space"></div>
+	<div class="menubox">
+		<h2>Record List</h2><br>
+		You don't have any record...<br>
+		<br><br>
+		<button id="viewbtn">View More</button><br>
+		<br><br>
+		You can view the video you have seen before and manage them.
+	</div> -->
+	<div class="space"></div>
+</div>
+<div id="information">
+	<div class="infobox slide_open" id="infovideobtn">
+		<h1>What is CoCoKUA ?</h1>
+	</div>
+	<div class="infobox">
+		<h1>Developers</h1>
+		<img src="../static/images/img/developers/wu.png" class="img-circle" alt="吳思儀" title="吳思儀">
+		<img src="../static/images/img/developers/yao.png" class="img-circle" alt="姚舜懷" title="姚舜懷">
+		<img src="../static/images/img/developers/jean.png" class="img-circle" alt="劉淨" title="劉淨">
+		<img src="../static/images/img/developers/line.png" class="img-circle" alt="劉臨軒" title="劉臨軒">
+		<br>
+		<br>
+	</div>
+</div>
+<!-- Video Lightbox -->
+<div id="slide" class="well">
+	<div id="infoPlayer">
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="../static/js/cookie.js"></script>
+<script src="../static/js/login.js"></script>
+<script src="../static/js/govideoroom.js"></script>
+<script src="../static/js/jquery.popupoverlay.js"></script>
+<script src="../static/js/infoVideo.js"></script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="../static/sweetalert/sweetalert.min.js"></script> 
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block css %}
+<link href="../static/css/room.css" rel="stylesheet">
+<link href="../static/css/chatwindow.css" rel="stylesheet">
+<link href="../static/css/canvas.css" rel="stylesheet">
+{% endblock %}
+
+{% block main %}
+<div id="left">
+	<div id="canvas">
+		<!-- Painting Tools -->
+		<div id='wrapper'>
+			<table id="option1">
+				<tr><td><img id="marker" class="toolimg" src="../static/images/img/brush.png"  value="marker" alt="Brush" title="Brush"></img></td></tr>
+				<tr><td><img id="text" class="toolimg" src="../static/images/img/text.png" alt="Text" title="Text"></td></tr>
+				<tr><td><img id="sticker" class="toolimg" src="../static/images/img/sticker.png" alt="Sticker" title="Sticker"></td></tr>
+			</table>
+			<table id="option2">
+				<tr class = 'setting marker'>
+					<td><canvas id="preview_brush" width="100" height="100" ></canvas></td>
+					<td>Color <input type="color" id="color_brush"></td>
+					<td>Brush Width <input type="range" id="lineWidth" max=12 min=1 step=1 value=6></td>
+				</tr>
+				<tr class = 'setting text'>
+					<td><canvas id="preview_text" width="110" height="100" ></canvas></td>
+					<td>Text <input type="text" id="word" value=""></td>
+					<td>Color <input type="color" id="color_text"></td>
+					<td>Size <input type="range" id="fontSize" max=12 min=1 step=1 value=6></td>	
+				</tr>
+				<tr class = 'setting sticker'>
+					<td><div id='sticker-holder'></div></td>
+				</tr>
+			</table>
+		</div>
+		<!-- Youtube Player -->
+		<div id="player"></div>
+		<!-- Canvas -->
+		<canvas id="myCanvas1" width="768" height="390" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas2" width="768" height="390" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas3" width="768" height="390" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas4" width="768" height="390" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas5" width="768" height="390" style="top:120px; left:140px;"></canvas>
+	</div>
+</div>		
+
+
+<div id="right">
+	<!-- Members List -->
+	<div id="memberList">
+		<div id="members"></div>
+		<input id="invitebutton" type="button" value="Invite"></input>
+	</div>
+
+	<!-- Chat window -->
+	<div id="chatwindow">
+		<div id="textbox"></div>
+		<div id="inputbox">
+			<input id="sendbutton" type="button" value="Send"></input>
+			<textarea id="msgtextarea"></textarea>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script>
+	var videoID = '{{v}}';
+	var roomID = '{{r}}';
+</script>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+	if ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+		alert("Sorry! This website does NOT support mobile device.");
+		location.href = "/";
+	}
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="https://cdn.pubnub.com/pubnub.min.js"></script>
+<script src="../static/js/videosync.js"></script>
+<script src="../static/js/playersetup.js"></script>
+<script src="../static/js/cookie.js"></script>
+<script src="../static/sweetalert/sweetalert.min.js"></script>
+<script src="../static/js/room_login.js"></script>
+<script src="../static/js/chatwindow.js"></script>
+<script src='../static/js/canvas.js'></script>
+<script src='../static/js/display.js'></script>
+<script src="../static/sweetalert/sweetalert.min.js"></script>
+<script src='../static/js/memberlist.js'></script>
+<script src='../static/js/canvas_sync.js'></script>
+{% endblock %}
