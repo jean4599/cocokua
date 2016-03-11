@@ -22,7 +22,7 @@ if(userFBID!="" && userName!="" && userPhotoURL!=""){
 /** FB initial **/
 window.fbAsyncInit = function() {
 	FB.init({
-		appId      : '156553844699727',//'771089149681169',
+		appId      : '771089149681169',//'156553844699727',
 		xfbml      : true,
 		version    : 'v2.5'
 	});
