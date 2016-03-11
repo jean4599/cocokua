@@ -1,1 +1,1 @@
-web: python cocokua_heroku/cocokua.py runserver
+web: python cocokua_heroku/cocokua.py 
