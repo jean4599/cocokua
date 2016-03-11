@@ -1,1 +1,1 @@
-gunicorn --pythonpath cocokua_heroku cocokua:app
+web: gunicorn --pythonpath cocokua_heroku cocokua:app
