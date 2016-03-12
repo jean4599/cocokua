@@ -10,8 +10,6 @@
 	
 	padding: 15px 20px 20px 20px;
 	box-sizing: border-box;
-	background-color: #AAAAAA;
-	border-radius: 10px;
 	text-align: center;
 }
 .space{
@@ -22,7 +20,7 @@
 	width: 80%;
 	padding: 5px 8px;
 	margin: 10px 0px;
-	border: 1px none #FFFFFF;
+	border: 1px thin #CCCCCC;
 	border-radius: 5px;
 }
 .menubox button{
@@ -33,24 +31,74 @@
 
 #information{
 	width: 100%;
+	text-align: center;
+	font-family: Sans-serif;
+}
+#information-title{
+	font-size: 20px;
+	color: #777777;
 }
 .infobox{
 	margin: 2.5%;
 	padding: 10px;
 	box-sizing: border-box;
-	background-color: #CCCCCC;
 	border-radius: 10px;
 	text-align: center;
+	height:200px;
 }
 
+#display-holder{
+	text-align: center;
+}
+.display{
+	display: inline-block;
+}
+.slide1{
+	top:400px;
+	margin:50px;
+	height: 300px;
+	width: 300px;
+}
+.slide1 img{
+	width: 300px;
+	top:400px;
+}
+.slide2{
+	display: none;
+	position:absolute;
+	top:400px;
+	height: 300px;
+	width:300px;
+	margin:50px;
+}
+.display-info{
+	color: white;
+	padding: 30px;
+	line-height: 1.8;
+}
+#infovideobtn{
+	width: 300px;
+}
+#infovideobtn img{
+	width:50px;
+}
+#foot{
+	height: 200px;
+	width: 100%;
+	text-align: center;
+	background-color: #555555;
+	padding: 10px;
+}
 .img-circle{
 	width: 13%;
 	border: solid;
 	border-color: #FFFFFF;
 	border-radius: 50%;
-	margin: 5%;
+	margin:0px 30px;
 }
-
+#foot img{
+	width:100px;
+}
 @media only screen and (max-width: 480px){
 	#mainmenu{
 		display: block;

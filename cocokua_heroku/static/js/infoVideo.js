@@ -17,10 +17,10 @@ $(document).ready(function() {
 	  $("#infovideobtn").css("cursor", "pointer");
 	  $("#infovideobtn").hover(
 		function(){
-			$("#infovideobtn").css("background-color", "#AAAAAA")
+			$("#infovideobtn img").css("width", "70px")
 		},
 		function(){
-			$("#infovideobtn").css("background-color", "#CCCCCC")
+			$("#infovideobtn img").css("width", "50px")
 		}
 	  );
 	  
