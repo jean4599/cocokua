@@ -9,14 +9,14 @@ button, input, textarea {
 }
 
 button, html input[type="button"], input[type="reset"], input[type="submit"]{
-	background-color: #555555;
+	background-color: #222222;
 	color: #FFFFFF;
 	border: none;
 	border-radius: 10px;
 }
 
 button:active, html input[type="button"]:active, input[type="reset"]:active, input[type="submit"]:active{
-	background-color: #333333;
+	background-color: #111111;
 	color: #CCCCCC;
 	-webkit-transform: scale(0.95);
 }
