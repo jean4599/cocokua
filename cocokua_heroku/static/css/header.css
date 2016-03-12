@@ -1,5 +1,5 @@
 header{
-	background-color: #555555;
+	background-color: black;
 	height: 60px;
 	width: 100%;
 	box-sizing: border-box;
@@ -55,7 +55,7 @@ header{
 #hidden_option{
 	z-index: 10;
 	display: none;
-	background-color: #444444;
+	background-color: black;
 	border-radius: 5px;
 	border: 1px solid #FFFFFF;
 	color: #FFFFFF;
