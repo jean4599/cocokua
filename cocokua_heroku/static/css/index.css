@@ -85,8 +85,9 @@
 #foot{
 	height: 200px;
 	width: 100%;
+	color: white;
 	text-align: center;
-	background-color: #555555;
+	background-color: black;
 	padding: 10px;
 }
 .img-circle{
