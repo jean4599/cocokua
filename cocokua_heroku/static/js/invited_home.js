@@ -8,6 +8,7 @@ $(function(){
 	var invitorID = par3[3];
 
 	if(videoID!=undefined && roomID!=undefined){
+		console.log('invited');
 		document.getElementById('roomURL').value= "http://"+par2[0]+"/r_"+videoID+"_n_"+roomID;
 		$('.bubble').css('display','block');
 		$('#gobtn').css('background-color','red');
