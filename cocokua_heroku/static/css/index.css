@@ -1,19 +1,18 @@
 #mainmenu{
-	display:table;
+	/*display:table;*/
 	margin: 2.5% 0%;
-	
+	text-align: center;
 	width: 100%;
 }
 .menubox{
-	display:table-cell;
-	width: 30%;
-	
+	display:inline-block;
+	width: 40%;
 	padding: 15px 20px 20px 20px;
 	box-sizing: border-box;
 	text-align: center;
 }
 .space{
-	display:table-cell;
+	display:inline-block;
 	width: 2.5%;
 }
 .menubox input{
@@ -101,6 +100,24 @@
 	border-color: #FFFFFF;
 	border-radius: 50%;
 	margin:5px 10px;
+}
+.bubble{
+	display: none;
+	position: fixed;
+	top: 50px;
+	right:10px;
+	z-index: 1;
+	width:250px;
+}
+.bubble[type='img']{
+	width:250px;
+	z-index: 1;
+}
+.bubble[type='p']{
+	color: black;
+	z-index: 2;
+	width:200px;
+	padding: 25px;
 }
 @media only screen and (max-width: 480px){
 	#mainmenu{

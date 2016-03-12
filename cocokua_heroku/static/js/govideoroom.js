@@ -23,7 +23,7 @@ $("#viewbtn").click(function(){
 
 function createRoom(){
 	if(userFBID==""){
-	//	swal({title: "Please login first", text: "Click \"Log In\" button to login with your FB account", type: "error", confirmButtonColor: "#F27474"});
+		swal({title: "Please login first", text: "Click \"Log In\" button to login with your FB account", type: "error", confirmButtonColor: "#F27474"});
 	}
 	else{
 		if($("#videoURL").val()==""){
@@ -42,7 +42,7 @@ function createRoom(){
 
 				}
 			});**/
-			location.href = "/"+videoID+"_n_"+roomID;
+			location.href = "/r_"+videoID+"_n_"+roomID;
 		} else{
 			swal({title: "Wrong URL format", text: "Please enter an absolute URL", type: "error", confirmButtonColor: "#F27474"});
 		}

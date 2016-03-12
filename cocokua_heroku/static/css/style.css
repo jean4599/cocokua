@@ -9,7 +9,7 @@ button, input, textarea {
 }
 
 button, html input[type="button"], input[type="reset"], input[type="submit"]{
-	background-color: #222222;
+	background-color: #333333;
 	color: #FFFFFF;
 	border: none;
 	border-radius: 10px;

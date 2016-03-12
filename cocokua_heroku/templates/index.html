@@ -3,7 +3,6 @@
 {% block css %}
 <link href="../static/css/index.css" rel="stylesheet">
 <link href="../static/css/infoVideo.css" rel="stylesheet">
-<link href="../static/css/jquery.bxslider.css" rel="stylesheet" />
 {% endblock %}
 
 {% block main %}
@@ -17,6 +16,12 @@
 		<br><br>
 		<!-- Enter a Youtube video URL to create a CoCoKUA room. Then share the room URL to invite your friends and enjoy. -->
 	</div>
+
+	<div class="bubble">
+		<p class="bubble" type='p'>Welcome to CoCoKUA. Your friend just invited you. Login and press "Go" button then you will enter the room !</p>
+		<img class="bubble" type='img' src="../static/images/text_bubble.png"></img>
+	</div>
+
 	<div class="space"></div>
 	<div class="menubox">
 		<h2>Go Into Room</h2><br>
@@ -54,7 +59,7 @@
 				<div class='display-info'>We offer many kinds of annotation tools to satisfy all your needs.</div>
 				<div class="slide_open" id="infovideobtn">
 					<img src='../static/images/play_button.png'></img>
-					<p>Watch more about CoCoKUA</p>
+					<p style='color:white'>Watch more about CoCoKUA</p>
 				</div>
 			</div>
 		</div>
@@ -83,6 +88,6 @@
 <script src="../static/js/infoVideo.js"></script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="../static/sweetalert/sweetalert.min.js"></script> 
-<!-- <script src="../static/js/jquery.bxslider.js"></script> -->
-<script src="../static/js/index_slider.js"></script>
+<script src="../static/js/index_slider.js"></script> 
+<script src='../static/js/invited_home.js'></script>
 {% endblock %}

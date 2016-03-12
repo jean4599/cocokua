@@ -135,7 +135,9 @@ window.fbAsyncInit = function() {
  }(document, 'script', 'facebook-jssdk'));
 
 $("#invitebutton").click(function(){
-	var url = window.location.href;	
+	var vars = window.location.href.split("\/");
+	var url = vars[2]+ "/i_"+ videoID+ "_n_"+ roomID+ "_n_"+ userFBID;
+	console.log(url);	
 	if(userFBID!=""){
 		$("#invitebutton").prop('disabled', true);
 		if(members.length>=5){
