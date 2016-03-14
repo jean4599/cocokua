@@ -1,15 +1,8 @@
 from flask import Flask
 from flask import render_template
 from flask import request
-import cookielib, urllib2
 
 app = Flask(__name__)
-
-cj = cookielib.CookieJar()
-opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
-r = opener.open("http://www.letsyoutube.com/")
-for cookie in cj:
-        print (cookie)
 
 @app.route("/")
 def cocokua_home():
