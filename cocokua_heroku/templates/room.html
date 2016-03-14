@@ -67,6 +67,23 @@
 <script>
 	var videoID = '{{v}}';
 	var roomID = '{{r}}';
+	console.log(videoID);
+	if(videoID.length>11){
+		videoID = videoID.split(/^[0-9a-z_\-]/i);
+		videoID = videoID[0];
+		console.log(videoID);
+	}
+	function makeRoomID(){
+		var id = "";
+		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+		for( var i=0; i < 11; i++ )
+			id += possible.charAt(Math.floor(Math.random() * possible.length));
+		return id;
+	}
+	if(roomID==''){
+		roomID = makeRoomID();
+		console.log(roomID);
+	}
 </script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
@@ -82,6 +99,7 @@
 <script src="../static/js/cookie.js"></script>
 <script src="../static/sweetalert/sweetalert.min.js"></script>
 <script src="../static/js/room_login.js"></script>
+<script src="../static/js/govideoroom.js"></script>
 <script src="../static/js/chatwindow.js"></script>
 <script src='../static/js/canvas.js'></script>
 <script src='../static/js/display.js'></script>
