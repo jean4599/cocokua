@@ -33,6 +33,10 @@ def cookua_from_youtube_to_room():
 def cocokua_PrivacyPolicy():
 	return render_template('PrivacyPolicy.html')
 
+@app.route("/sitemap")
+def cocokua_Sitemap():
+        return render_template('sitemap.xml')
+
 if __name__ == "__main__":
 	app.run(debug=True)
 
