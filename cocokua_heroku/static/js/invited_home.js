@@ -5,7 +5,6 @@ $(function(){
 	var par3 = par2[1].split(/_n_|i_/g);
 	var videoID = par3[1];
 	var roomID = par3[2];
-	var invitorID = par3[3];
 
 	if(videoID!=undefined && roomID!=undefined){
 		console.log('invited');

@@ -32,8 +32,8 @@ if(userFBID!="" && userName!="" && userPhotoURL!=""){
 	setTimeout(function(){ setVideo(); }, 500);
 }
 else{
-	alert("Please login first."); //can't use sweetalert
-	location.href = "/";
+	//alert("Please login first."); //can't use sweetalert
+	location.href = "/i_"+ videoID+ "_n_"+ roomID;
 }
 
 function logout() {

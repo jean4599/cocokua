@@ -136,7 +136,7 @@ window.fbAsyncInit = function() {
 
 $("#invitebutton").click(function(){
 	var vars = window.location.href.split("\/");
-	var url = vars[2]+ "/i_"+ videoID+ "_n_"+ roomID+ "_n_"+ userFBID;
+	var url = vars[2]+ "/r_"+ videoID+ "_n_"+ roomID;
 	console.log(url);	
 	if(userFBID!=""){
 		$("#invitebutton").prop('disabled', true);

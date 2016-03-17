@@ -73,17 +73,6 @@
 		videoID = videoID[0];
 		console.log(videoID);
 	}
-	function makeRoomID(){
-		var id = "";
-		var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-		for( var i=0; i < 11; i++ )
-			id += possible.charAt(Math.floor(Math.random() * possible.length));
-		return id;
-	}
-	if(roomID==''){
-		roomID = makeRoomID();
-		console.log(roomID);
-	}
 </script>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script>
