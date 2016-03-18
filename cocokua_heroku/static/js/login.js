@@ -27,6 +27,11 @@ window.fbAsyncInit = function() {
 		cookie     : true,
 		version    : 'v2.5'
 	});
+	FB.getLoginStatus(function(response) {
+    	if(response.authResponse){
+			getUserInfo();
+		}
+  	});
 };
 (function(d, s, id){
 	var js, fjs = d.getElementsByTagName(s)[0];
