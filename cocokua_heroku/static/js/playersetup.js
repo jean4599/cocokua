@@ -19,8 +19,8 @@ function setVideo(){
 	userID = makeUserID();
 	vidSync = new VideoSync(videoID+"_"+roomID, userID);
 	player = new YT.Player('player', {
-		height: '432',
-		width: '768',
+		height: '480',
+		width: '854',
 		videoId: videoID,
 		playerVars: playerVars,
 		events: {
@@ -37,6 +37,8 @@ function makeUserID(){
 		id += possible.charAt(Math.floor(Math.random() * possible.length));
 	return id;
 }
+
+
 //TODO: check user id whether it has been used or not.
 
 

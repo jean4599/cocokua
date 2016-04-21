@@ -4,6 +4,7 @@
 <link href="../static/css/room.css" rel="stylesheet">
 <link href="../static/css/chatwindow.css" rel="stylesheet">
 <link href="../static/css/canvas.css" rel="stylesheet">
+<link href="../static/css/switch.css" rel="stylesheet">
 {% endblock %}
 
 {% block main %}
@@ -36,11 +37,22 @@
 		<!-- Youtube Player -->
 		<div id="player"></div>
 		<!-- Canvas -->
-		<canvas id="myCanvas1" width="768" height="390" style="top:120px; left:140px;"></canvas>
-		<canvas id="myCanvas2" width="768" height="390" style="top:120px; left:140px;"></canvas>
-		<canvas id="myCanvas3" width="768" height="390" style="top:120px; left:140px;"></canvas>
-		<canvas id="myCanvas4" width="768" height="390" style="top:120px; left:140px;"></canvas>
-		<canvas id="myCanvas5" width="768" height="390" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas1" width="854" height="430" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas2" width="854" height="430" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas3" width="854" height="430" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas4" width="854" height="430" style="top:120px; left:140px;"></canvas>
+		<canvas id="myCanvas5" width="854" height="430" style="top:120px; left:140px;"></canvas>
+		<!-- Canvas Control -->
+		<div id="canvascontrol">
+			<span id="canvascontrol-label">Canvas</span>
+			<div class="onoffswitch">
+				<input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="canvasonoffswitch" checked>
+				<label class="onoffswitch-label" for="canvasonoffswitch">
+					<span class="onoffswitch-inner"></span>
+					<span class="onoffswitch-switch"></span>
+				</label>
+			</div>
+		</div>
 	</div>
 </div>		
 

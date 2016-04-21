@@ -33,6 +33,7 @@ function VideoSync(roomId, userId) {
 
     // A helper function that publishes state-change messages.
     var pub = function (type, time) {
+        console.log(time+' pb '+type);
         if (lastMsg !== "" + type + time) {
 			var sendTime = $.now();
             pubnub.publish({
@@ -64,7 +65,11 @@ function VideoSync(roomId, userId) {
                 if ((m.recipient === userId || m.recipient === "") && m.sender !== userId) {
                     if (m.type === "updateRequest") {
                         var curState = player.getPlayerState();
-                        if (curState == 1){
+                        if(curState == 0){
+                            console.log('pb YT ended');
+                        }
+                        else if (curState == 1){
+                            console.log('pb YT playing');
 							var curTime = player.getCurrentTime();
 							var sendTime = $.now();
 							pubnub.publish({
@@ -78,6 +83,7 @@ function VideoSync(roomId, userId) {
 								}
 							});
 						} else if (curState ==2) {
+                            console.log('pb YT pauseed');
 							var curTime = player.getCurrentTime();
 							var sendTime = $.now();
 							pubnub.publish({
@@ -93,10 +99,12 @@ function VideoSync(roomId, userId) {
 						}
                     }
 					else if (m.type === "pause") {
+                        console.log('sb YT pause');
                         player.seekTo(m.time, true);
                         time = m.time;
                         player.pauseVideo();
                     } else if (m.type === "play") {
+                        console.log('sb YT play');
                         if (m.time !== null) {
 							var delay = Math.ceil(($.now()-m.sendtime)/1000);
 							player.seekTo(m.time+delay, true);
@@ -133,7 +141,7 @@ function VideoSync(roomId, userId) {
                 }
             }
             time = curTime;
-        }, 50);
+        }, 10);
     };
 
     // Public Methods
@@ -144,7 +152,7 @@ function VideoSync(roomId, userId) {
             player = event.target;
             //event.target.playVideo();
             event.target.pauseVideo();
-            keepSync();
+             keepSync();
         },
         // Should be bound to the YouTube player `onStateChange` event.
         onPlayerStateChange: function (event) {

@@ -1,6 +1,6 @@
 body{
 	margin: 0px;
-	font-family: 'Comfortaa', "微軟正黑體", cursive;
+	/*font-family: 'Lucida Grande', "微軟正黑體", cursive;*/
 }
 
 button, input, textarea {
@@ -19,4 +19,7 @@ button:active, html input[type="button"]:active, input[type="reset"]:active, inp
 	background-color: #111111;
 	color: #CCCCCC;
 	-webkit-transform: scale(0.95);
+}
+a{
+	color: hotpink;;
 }

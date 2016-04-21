@@ -18,6 +18,8 @@ var stickerID = 1;
 var paintOn = 0;
 var meUser;
 
+var sclock = null;
+var bclock = null;
 
 function setCanvas(userCanvasID){
   document.getElementById('myCanvas'+(userCanvasID+1)).style.zIndex = 6;
@@ -29,6 +31,12 @@ function startCanvas(userCanvasID){
 
 	//action binding
 	canvas[meUser].onmousedown = function(ev){
+		if(sclock!=null){
+			clearTimeout(sclock);
+			console.log('clear sclock: ' + sclock);
+		}
+		if(bclock!=null)clearTimeout(bclock);
+
 		drawMode = true;
 		//initialize
 		ctx[meUser].beginPath();
@@ -73,26 +81,28 @@ function startCanvas(userCanvasID){
 		if(drawMode && mode!=''){
 			mx = event.clientX - parseInt(canvas[meUser].style.left) + window.pageXOffset;
 			my = event.clientY - parseInt(canvas[meUser].style.top) + window.pageYOffset;
-			// if(lineCount<4){
-			// 	lineCount++;
-			// }
-			// else{
+			if(lineCount<4){
+				lineCount++;
+			}
+			else{
 				canvasBroadcast("lineTo", userFBID, mx, my, color, ctx[meUser].lineWidth, "");
 				ctx[meUser].lineTo(mx, my);
 				ctx[meUser].stroke();
 				lineCount = 0;
-			//}
+			}
 		}
 	}
    
 	canvas[meUser].onmouseup = function(){
 		drawMode = false;
 		if (!paintOn) {
-			paintOn = 1;
-			setTimeout(clearCanvas,2000,meUser);
-			setTimeout(function(){
+			//paintOn = 1;
+			sclock = setTimeout(clearCanvas,2000,meUser);
+			console.log('set sclock: ' + sclock);
+			bclock = setTimeout(function(){
 				canvasBroadcast("clear", userFBID, 0, 0, "", 0, "");
-				paintOn = 0;
+				stateBroadcast("bordercolor", userFBID, userName, userPhotoURL, 'default');
+				//paintOn = 0;
 			}, 2000);
 		}
 	}
@@ -219,4 +229,12 @@ $('#sticker-holder').on('click','.sticker-img',function(){
 	stickerWidth = $("#"+stickerID)[0].naturalWidth;
 	stickerHeight = $("#"+stickerID)[0].naturalHeight;
 	$( "canvas" ).not( "#preview_text,#preview_brush" ).css("cursor", "url(../static/images/img/transparent_sticker/"+stickerID+"_t60.png) "+stickerWidth/2+" "+stickerHeight/2+", default");
+});
+$("#canvasonoffswitch").change(function() {
+    if(this.checked) {
+		$('#myCanvas1, #myCanvas2, #myCanvas3, #myCanvas4, #myCanvas5').css("display", "block");
+    }
+	else{
+		$('#myCanvas1, #myCanvas2, #myCanvas3, #myCanvas4, #myCanvas5').css("display", "none");
+	}
 });
