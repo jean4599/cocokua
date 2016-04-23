@@ -21,7 +21,7 @@ PUBNUB_background.subscribe({
 				if(m.data=="default")
 					$("#photo_"+m.id).css("box-shadow", "none");
 				else
-					$("#photo_"+m.id).css("box-shadow", "0px 0px 2px 2px "+ m.data);
+					$("#photo_"+m.id).css("box-shadow", "0px 0px 6px 6px "+ m.data);
 				break;
 		}
     },
@@ -119,7 +119,7 @@ function getCanvasID(id){
 /** Invite Friends **/
 window.fbAsyncInit = function() {
 	FB.init({
-		appId      : '1092837947440350',//'156553844699727',
+		appId      : '156553844699727',//'1092837947440350',//
 		xfbml      : true,
 		version    : 'v2.5'
 	});

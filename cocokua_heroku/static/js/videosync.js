@@ -62,10 +62,6 @@ function VideoSync(roomId, userId) {
             channel: roomId,
             callback: function (m) {
                 lastMsg = m.recipient + m.type + m.time;
-                if(m.sender === userId){
-                    if(m.type === "pause") send_system_message(' paused the video');
-                    else if(m.type === "play") send_system_message(' played the video');
-                }
                 if ((m.recipient === userId || m.recipient === "") && m.sender !== userId) {
                     if (m.type === "updateRequest") {
                         var curState = player.getPlayerState();
@@ -117,29 +113,18 @@ function VideoSync(roomId, userId) {
                     }
                 }
             },
-			// connect: function(){
-			// 	pubnub.publish({
-			// 		channel: roomId,
-			// 		message: {
-			// 			recipient: "",
-			// 			sender: userID,
-			// 			type: "updateRequest",
-			// 			time: null
-			// 		}
-			// 	});
-			// },
-   //          presence: function (m) {}
-               presence: function(){
-             pubnub.publish({
-                 channel: roomId,
-                 message: {
-                     recipient: "",
-                     sender: userID,
-                     type: "updateRequest",
-                     time: null
-                 }
-             });
-            }
+			connect: function(){
+				pubnub.publish({
+					channel: roomId,
+					message: {
+						recipient: "",
+						sender: userID,
+						type: "updateRequest",
+						time: null
+					}
+				});
+			},
+            presence: function (m) {}
         });
 
         // Intermittently checks whether the video player has jumped ahead or
