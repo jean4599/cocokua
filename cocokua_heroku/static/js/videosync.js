@@ -62,6 +62,10 @@ function VideoSync(roomId, userId) {
             channel: roomId,
             callback: function (m) {
                 lastMsg = m.recipient + m.type + m.time;
+                if(m.sender === userId){
+                    if(m.type === "pause") send_system_message(' plauseed the video');
+                    else if(m.type === "play") send_system_message(' played the video');
+                }
                 if ((m.recipient === userId || m.recipient === "") && m.sender !== userId) {
                     if (m.type === "updateRequest") {
                         var curState = player.getPlayerState();
@@ -160,8 +164,7 @@ function VideoSync(roomId, userId) {
                 // Play event.
                 if (event.data === 1) {
                     pub("play", null);
-                    //show on chat window who pause the video
-                    send_system_message(' play the video');
+                   
 					//document.getElementById('myCanvas1').style.display="block";
 					//document.getElementById('myCanvas2').style.display="block";
 					//document.getElementById('myCanvas3').style.display="block";
@@ -171,8 +174,7 @@ function VideoSync(roomId, userId) {
                 // Pause event.
                 else if (event.data === 2) {
                     pub("pause", player.getCurrentTime());
-                    //show on chat window who pause the video
-                    send_system_message(' paused the video');
+
                 }
             }
         }
