@@ -30,6 +30,15 @@ function send(){
 		$("#msgtextarea").val("");
 	}	
 }
+function send_system_message(msg){
+	var userName = $("#userName").html();
+	var msg = userName + msg;
+	console.log('msg '+msg);
+	PUBNUB_chat.publish({
+			channel: channelID,
+			message: {"text": msg}
+		});
+}
 
 $("#sendbutton").click(function(){
 		send();

@@ -95,14 +95,14 @@ function VideoSync(roomId, userId) {
 									sender: userID,
 									sendtime: sendTime
 								}
-							});
+							});                            
 						}
                     }
 					else if (m.type === "pause") {
                         console.log('sb YT pause');
                         player.seekTo(m.time, true);
                         time = m.time;
-                        player.pauseVideo();
+                        player.pauseVideo();          
                     } else if (m.type === "play") {
                         console.log('sb YT play');
                         if (m.time !== null) {
@@ -160,6 +160,8 @@ function VideoSync(roomId, userId) {
                 // Play event.
                 if (event.data === 1) {
                     pub("play", null);
+                    //show on chat window who pause the video
+                    send_system_message(' play the video');
 					//document.getElementById('myCanvas1').style.display="block";
 					//document.getElementById('myCanvas2').style.display="block";
 					//document.getElementById('myCanvas3').style.display="block";
@@ -169,6 +171,8 @@ function VideoSync(roomId, userId) {
                 // Pause event.
                 else if (event.data === 2) {
                     pub("pause", player.getCurrentTime());
+                    //show on chat window who pause the video
+                    send_system_message(' paused the video');
                 }
             }
         }
