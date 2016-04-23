@@ -63,7 +63,7 @@ function VideoSync(roomId, userId) {
             callback: function (m) {
                 lastMsg = m.recipient + m.type + m.time;
                 if(m.sender === userId){
-                    if(m.type === "pause") send_system_message(' plauseed the video');
+                    if(m.type === "pause") send_system_message(' paused the video');
                     else if(m.type === "play") send_system_message(' played the video');
                 }
                 if ((m.recipient === userId || m.recipient === "") && m.sender !== userId) {
