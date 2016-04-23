@@ -117,18 +117,29 @@ function VideoSync(roomId, userId) {
                     }
                 }
             },
-			connect: function(){
-				pubnub.publish({
-					channel: roomId,
-					message: {
-						recipient: "",
-						sender: userID,
-						type: "updateRequest",
-						time: null
-					}
-				});
-			},
-            presence: function (m) {}
+			// connect: function(){
+			// 	pubnub.publish({
+			// 		channel: roomId,
+			// 		message: {
+			// 			recipient: "",
+			// 			sender: userID,
+			// 			type: "updateRequest",
+			// 			time: null
+			// 		}
+			// 	});
+			// },
+   //          presence: function (m) {}
+               presence: function (m) function(){
+             pubnub.publish({
+                 channel: roomId,
+                 message: {
+                     recipient: "",
+                     sender: userID,
+                     type: "updateRequest",
+                     time: null
+                 }
+             });
+            }
         });
 
         // Intermittently checks whether the video player has jumped ahead or
