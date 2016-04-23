@@ -129,7 +129,7 @@ function VideoSync(roomId, userId) {
 			// 	});
 			// },
    //          presence: function (m) {}
-               presence: function (m) function(){
+               presence: function(){
              pubnub.publish({
                  channel: roomId,
                  message: {
