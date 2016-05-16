@@ -119,7 +119,7 @@ function getCanvasID(id){
 /** Invite Friends **/
 window.fbAsyncInit = function() {
 	FB.init({
-		appId      : '156553844699727',//'1092837947440350',//
+		appId      : '1092837947440350',//
 		xfbml      : true,
 		version    : 'v2.5'
 	});
