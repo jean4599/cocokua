@@ -10,9 +10,11 @@ header{
 	float: left;
 	line-height: 60px;
 	color: #FFFFFF;
-	font-weight: bold;
+	font-size: 22px;
 	cursor: pointer;
 	text-decoration: none;
+	display: flex;
+  	align-items: center;
 }
 
 #userBar{
