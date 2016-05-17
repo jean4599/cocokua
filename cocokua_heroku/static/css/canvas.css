@@ -1,6 +1,5 @@
 #canvas{
-	display: block;
-	//position: relative;
+	display: table-cell;
 	box-sizing: border-box;	
 	height: 620px;
 	width: 1000px;
@@ -14,7 +13,7 @@
 #player{
 	z-index: 0;
 	position: absolute;
-	top: 120px;
+	top: 70px;
 	left: 140px;
 }
 
@@ -65,9 +64,9 @@
 	height: 80px;
 	
 	position: absolute;
-	top: 600px;
+	top: 550px;
 	left: 140px;
-	
+	overflow: scroll;
 	border:0px;
 	display: inline-block;
 	background-color: #FFFFFF;
