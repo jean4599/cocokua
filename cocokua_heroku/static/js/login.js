@@ -24,14 +24,13 @@ window.fbAsyncInit = function() {
 	FB.init({
 		appId      : '1092837947440350',//
 		xfbml      : true,
-		cookie     : true,
 		version    : 'v2.5'
 	});
-	FB.getLoginStatus(function(response) {
-    	if(response.authResponse){
-			getUserInfo();
-		}
-  	});
+	// FB.getLoginStatus(function(response) {
+ //    	if(response.authResponse){
+	// 		getUserInfo();
+	// 	}
+ //  	});
 };
 (function(d, s, id){
 	var js, fjs = d.getElementsByTagName(s)[0];
@@ -72,9 +71,9 @@ function getUserInfo() {
 		FB.api('/me/picture?width=30&height=30', function(response) {
 			userPhotoURL = response.data.url;
 			$("#userPhoto").attr("src", userPhotoURL);
-			setCookie("cocokua_user_id", userFBID, 1);
-			setCookie("cocokua_user_name", userName, 1);
-			setCookie("cocokua_user_photo", userPhotoURL, 1);
+			setCookie("cocokua_user_id", userFBID, 10);
+			setCookie("cocokua_user_name", userName, 10);
+			setCookie("cocokua_user_photo", userPhotoURL, 10);
 		})
 		$("#userName").css("padding", "0px 5px 0px 10px");
 		$("#unfoldArrow").css("display", "inline-block" );
