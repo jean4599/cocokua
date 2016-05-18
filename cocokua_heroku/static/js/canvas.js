@@ -43,9 +43,9 @@ function startCanvas(userCanvasID){
 		ctx[meUser].lineJoin = 'miter';
 		ctx[meUser].shadowBlur = 0;
 		ctx[meUser].globalAlpha = 1;
-
 		mx = event.clientX - parseInt(canvas[meUser].style.left) + window.pageXOffset;
-		my = event.clientY - parseInt(canvas[meUser].style.top) + window.pageYOffset;
+		my = event.clientY - parseInt(canvas[meUser].style.top) - 60 + window.pageYOffset;
+		console.log('x = '+mx+' y = '+my);
 		ctx[meUser].moveTo(mx, my);
 
 
@@ -80,7 +80,7 @@ function startCanvas(userCanvasID){
 	canvas[meUser].onmousemove = function(ev){
 		if(drawMode && mode!=''){
 			mx = event.clientX - parseInt(canvas[meUser].style.left) + window.pageXOffset;
-			my = event.clientY - parseInt(canvas[meUser].style.top) + window.pageYOffset;
+			my = event.clientY - parseInt(canvas[meUser].style.top)-60 + window.pageYOffset;
 			if(lineCount<4){
 				lineCount++;
 			}
