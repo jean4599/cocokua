@@ -63,7 +63,8 @@ function startCanvas(userCanvasID){
 				stateBroadcast("bordercolor", userFBID, userName, userPhotoURL, color);
 				selectFontSize();
 				var textValue = $("#word").val();
-				ctx[meUser].fillText(textValue, mx, my);
+				tw = ctx[meUser].measureText(textValue).width;
+				ctx[meUser].fillText(textValue, mx-tw/2, my);
 				drawMode = false;
 				canvasBroadcast("text", userFBID, mx, my, color, textSize, textValue);
 				break;
