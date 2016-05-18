@@ -43,7 +43,7 @@ function startCanvas(userCanvasID){
 		ctx[meUser].lineJoin = 'miter';
 		ctx[meUser].shadowBlur = 0;
 		ctx[meUser].globalAlpha = 1;
-		mx = event.clientX - parseInt(canvas[meUser].style.left) + window.pageXOffset;
+		mx = event.clientX - parseInt(canvas[meUser].style.left) - 8 + window.pageXOffset;
 		my = event.clientY - parseInt(canvas[meUser].style.top) - 60 + window.pageYOffset;
 		console.log('x = '+mx+' y = '+my);
 		ctx[meUser].moveTo(mx, my);
@@ -64,7 +64,7 @@ function startCanvas(userCanvasID){
 				selectFontSize();
 				var textValue = $("#word").val();
 				tw = ctx[meUser].measureText(textValue).width;
-				ctx[meUser].fillText(textValue, mx-tw/2, my);
+				ctx[meUser].fillText(textValue, mx-tw/2, my+2);
 				drawMode = false;
 				canvasBroadcast("text", userFBID, mx, my, color, textSize, textValue);
 				break;
@@ -80,8 +80,8 @@ function startCanvas(userCanvasID){
    
 	canvas[meUser].onmousemove = function(ev){
 		if(drawMode && mode!=''){
-			mx = event.clientX - parseInt(canvas[meUser].style.left) + window.pageXOffset;
-			my = event.clientY - parseInt(canvas[meUser].style.top)-60 + window.pageYOffset;
+			mx = event.clientX - parseInt(canvas[meUser].style.left)- 8 + window.pageXOffset;
+			my = event.clientY - parseInt(canvas[meUser].style.top)- 60 + window.pageYOffset;
 			if(lineCount<4){
 				lineCount++;
 			}
