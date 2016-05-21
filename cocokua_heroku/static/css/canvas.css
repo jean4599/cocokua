@@ -1,7 +1,7 @@
 #canvas{
 	display: table-cell;
 	box-sizing: border-box;	
-	height: 620px;
+	height: 650px;
 	width: 1000px;
 	border: 1px solid #CCCCCC;
 	border-radius: 10px;
@@ -61,7 +61,7 @@
 #option2{
 	box-sizing: border-box;	
 	width: 768px;
-	height: 80px;
+	height: 160px;
 	
 	position: absolute;
 	top: 550px;
@@ -88,7 +88,7 @@
 	
 	box-sizing: border-box;
 	width: 768px;
-	height: 80px;
+	height: 160px;
 	overflow-Y: scroll;
 }
 #color_brush, #color_text{

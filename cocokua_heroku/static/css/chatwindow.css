@@ -1,7 +1,7 @@
 #chatwindow{
 	background-color: #FFFFFF;
 	box-sizing: border-box;
-	height: 560px;
+	height: 590px;
 	width: 340px;
 	display: inline-block;
 	padding: 10px;
@@ -12,7 +12,7 @@
 	background-color: #FFFFFF;
 	border: 1px solid #CCCCCC;
 	box-sizing: border-box;
-	height: 485px;
+	height: 500px;
 	padding: 5px;
 	overflow: auto;
 }
