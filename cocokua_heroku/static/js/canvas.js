@@ -66,7 +66,7 @@ function startCanvas(userCanvasID){
 				tw = ctx[meUser].measureText(textValue).width;
 				ctx[meUser].fillText(textValue, mx-tw/2, my+2);
 				drawMode = false;
-				canvasBroadcast("text", userFBID, mx, my, color, textSize, textValue);
+				canvasBroadcast("text", userFBID, mx-tw/2, my+2, color, textSize, textValue);
 				break;
 
 			case "sticker":
