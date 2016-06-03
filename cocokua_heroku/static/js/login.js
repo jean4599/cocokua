@@ -81,10 +81,10 @@ function getUserInfo() {
 		$("#userPhoto").attr("alt", userName);
 		$("#userPhoto").attr("title", userName);
 		$("#hidden_option").width($("#userState").width());
+		if(document.getElementById('roomURL').value!=''){
+					goRoom();
+				}
 	});
-	if(document.getElementById('roomURL').value!=''){
-				goRoom();
-			}
 }
 
 /** hidden options **/
