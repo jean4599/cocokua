@@ -44,9 +44,6 @@ function login() {
 	FB.getLoginStatus(function(response) {
 		if(response.authResponse){
 			getUserInfo();
-			if(document.getElementById('roomURL').value!=''){
-				goRoom();
-			}
 		}
 		else{
 			FB.login(function(response) {
@@ -85,7 +82,9 @@ function getUserInfo() {
 		$("#userPhoto").attr("title", userName);
 		$("#hidden_option").width($("#userState").width());
 	});
-	;
+	if(document.getElementById('roomURL').value!=''){
+				goRoom();
+			}
 }
 
 /** hidden options **/
