@@ -23,7 +23,7 @@ function VideoSync(roomId, userId) {
         publish_key: 'pub-c-8b2af6e6-5e78-4909-b26a-14e2894e34b4',
         subscribe_key: 'sub-c-37fe5e96-1d07-11e6-b700-0619f8945a4f',
         uuid: userId,
-        ssl : (('https:' == document.location.protocol) ? true : false
+        ssl : (('https:' == document.location.protocol) ? true : false)
     });
 
     // Whether the connection to the channel has been established yet.
