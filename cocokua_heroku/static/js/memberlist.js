@@ -6,7 +6,8 @@ var canvasID = -1;
 PUBNUB_background = PUBNUB.init({
     publish_key: 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769', 
     subscribe_key: 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
-	uuid: userFBID
+	uuid: userFBID,
+	ssl : (('https:' == document.location.protocol) ? true : false
 });
 
 /* 		newuser;<FB Photo URL>;<FB Name>;<FB ID>
