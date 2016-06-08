@@ -5,11 +5,19 @@
 <link href="../static/css/chatwindow.css" rel="stylesheet">
 <link href="../static/css/canvas.css" rel="stylesheet">
 <link href="../static/css/switch.css" rel="stylesheet">
+<link href="../static/css/phone.css" rel="stylesheet">
+<link href="../static/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+
 {% endblock %}
 
 {% block main %}
 <div id="left">
 	<div id="canvas">
+		<div id='call-option'>
+			<strong> Call to your friend: </strong>
+			<button class="btn btn-primary" id="audio-btn" type="button">Audio</button>
+			<button class="btn btn-primary" id="video-btn" type="button">Video</button>
+		</div>
 		<!-- Painting Tools -->
 		<div id='wrapper'>
 			<table id="option1">
@@ -73,6 +81,11 @@
 		</div>
 	</div>
 </div>
+<div id="videoChat">
+	<div id="draggable" class="ui-widget-content" style="display:none">
+ 	<p>Drag me around</p>
+	</div>
+</div>
 {% endblock %}
 
 {% block script %}
@@ -95,6 +108,7 @@
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="https://cdn.pubnub.com/pubnub.min.js"></script>
+<script src="../static/jquery-ui/jquery-ui.js"></script>
 <script src="../static/js/videosync.js"></script>
 <script src="../static/js/playersetup.js"></script>
 <script src="../static/js/cookie.js"></script>
@@ -106,5 +120,8 @@
 <script src='../static/js/display.js'></script>
 <script src="../static/sweetalert/sweetalert.min.js"></script>
 <script src='../static/js/memberlist.js'></script>
+<script src='../static/js/phone.js'></script>
 <script src='../static/js/canvas_sync.js'></script>
+<script src='../static/js/webrtc.js'></script>
+<script src='../static/js/sound.js'></script>
 {% endblock %}
