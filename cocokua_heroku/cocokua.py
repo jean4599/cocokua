@@ -3,8 +3,10 @@ from flask import render_template
 from flask import request
 import string
 import random
+from flask_sslify import SSLify
 
 app = Flask(__name__)
+sslify = SSLify(app)
 
 @app.route("/")
 def cocokua_home():
