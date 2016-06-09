@@ -1,10 +1,4 @@
-#draggable {
- width: 320px;
- height: 180px; 
- padding: 0.5em;
- z-index: 10000; 
-}
-#videoChat {
+#draggable,#draggable-me {
  width: 320px;
  height: 180px; 
  padding: 0.5em;
@@ -12,7 +6,7 @@
 }
 #call-option{
 	position: absolute;
-	width: 500px;
+	width: 400px;
 	top:40px;
 	left:200px;
 }

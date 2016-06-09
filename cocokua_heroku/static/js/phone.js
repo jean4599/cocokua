@@ -50,7 +50,7 @@ phone.receive(function(session){
 function connected(session) {
 	var newId = 'video-display-'+session.number;
 	var container = document.getElementById('videoChat');
-	var videoChat = document.getElementById('draggable-model');
+	var videoChat = document.getElementById('draggable');
 	var cln = videoChat.cloneNode(true);
 	cln.style.display="block";
 	$( cln ).draggable({
