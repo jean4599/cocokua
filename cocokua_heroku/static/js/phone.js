@@ -28,7 +28,7 @@ function makeCall(){
   		opacity: 0.35
 	});
 	videoDisplay.innerHTML = '';
-	videoDisplay.append(phone.video);
+	$(videoDisplay).append(phone.video);
 
 	//members is defined in memberlist.js
     var sessions = [];
