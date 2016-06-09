@@ -49,15 +49,18 @@ function connected(session) {
   		opacity: 0.35
 	});
 	container.appendChild(cln); 
+	
 	$(cln).children('#video-display').attr('id',newId);
+	$(cln).children('#hangup').attr('id','hangup'+session.number);
 	$(cln).children('#facetime-off').click(function(){
 		phone.media={video:false,audio:true}
         set_icon(video_out,'facetime-video');
 	});
-	$(cln).children('#hangup').click(function(){
-		session.hangup();
-		set_icon(video_out,'facetime-video');
-	})
+	
+	PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup'+session.number), function() {
+        session.hangup();
+        set_icon(video_out,'facetime-video');
+    } );
 
 	console.log(newId);
 	var video_out = PUBNUB.$(newId);
