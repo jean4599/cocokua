@@ -23,6 +23,23 @@ function VideoPhone(){
 
     // As soon as the phone is ready we can make calls
     phone.ready(function(){
+    	//
+    	var container = document.getElementById('videoChat');
+    	if(container.children('video-display-me')==null){
+    		var newId = 'video-display-me';
+        	var container = document.getElementById('videoChat');
+			var videoChat = document.getElementById('draggable');
+			var cln = videoChat.cloneNode(true);
+			cln.style.display="block";
+			$( cln ).draggable({
+		  		opacity: 0.35
+			});
+			container.appendChild(cln); 
+			$(cln).children('#video-display').attr('id',newId);
+			var video_out = $('#'+newId);
+			video_out.innerHTML = '';
+			video_out.append(phone.video);
+    	}
     	//members is defined in memberlist.js
         var sessions = [];
         	for (i=0;i<members.length;i++){
@@ -32,7 +49,6 @@ function VideoPhone(){
 			    friend.connected(function(session){ /* call connected */ });
 			    friend.ended(function(session){     /* call ended     */ });
 			});
-
     });
     // When Call Comes In or is to be Connected
     phone.receive(function(session){
