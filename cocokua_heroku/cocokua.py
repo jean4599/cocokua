@@ -9,7 +9,7 @@ app = Flask(__name__)
 sslify = SSLify(app)
 
 @app.route("/webrtc")
-def cocokua_home():
+def cocokua_webrtc():
 	return render_template('index_webrtc.html')
 
 @app.route("/")
