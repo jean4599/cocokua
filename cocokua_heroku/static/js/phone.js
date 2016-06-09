@@ -34,7 +34,7 @@ function VideoPhone(Element){
     	//members is defined in memberlist.js
         var sessions = [];
         	for (i=0;i<members.length;i++){
-        		sessions.push(phone.dial(memberlist[i]));
+        		sessions.push(phone.dial(members[i]));
         	}
 			sessions.forEach(function(friend){
 			    friend.connected(function(session){ /* call connected */ });

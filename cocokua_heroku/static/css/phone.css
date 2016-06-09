@@ -1,8 +1,7 @@
 #draggable {
- width: 150px;
- height: 150px; 
+ width: 160px;
+ height: 90px; 
  padding: 0.5em;
- background-color: red;
  z-index: 10000; 
 }
 #call-option{
