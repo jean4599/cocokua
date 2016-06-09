@@ -36,15 +36,14 @@ phone.ready(function(){
 });
 function makeCall(){
 	//members is defined in memberlist.js
-	phone.dial('954393151310794');
-  //   var sessions = [];
-  //   	for (i=0;i<members.length;i++){
-  //   		sessions.push(phone.dial(members[i]));
-  //   	}
-		// sessions.forEach(function(friend){
-		//     friend.connected(function(session){ /* call connected */ });
-		//     friend.ended(function(session){     /* call ended     */ });
-		// });
+    var sessions = [];
+    	for (i=0;i<members.length;i++){
+    		sessions.push(phone.dial(members[i]));
+    	}
+		sessions.forEach(function(friend){
+		    friend.connected(function(session){ /* call connected */ });
+		    friend.ended(function(session){     /* call ended     */ });
+		});
 }
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Receiver for Calls
