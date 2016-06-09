@@ -46,7 +46,9 @@ function VideoPhone(){
 			$( cln ).draggable({
 		  		opacity: 0.35
 			});
-			PUBNUB.$(cln).appendChild(session.video);
+			var video_out = PUBNUB.$(cln).children('#video-display');
+			video_out.innerHTML = '';
+    		video_out.appendChild(session.video);
 			container.appendChild(cln); 
         });
 
