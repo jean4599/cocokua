@@ -16,11 +16,11 @@
 	<div id="canvas">
 		<div id='call-option' class='container'>
 			<div class='row'>
-				<strong class='col-md-4'> Call to your friend: </strong>
-				<div class="col-md-4">
+				<strong class='col-md-5'> Call to your friend: </strong>
+				<div class="col-md-2">
 					<button class="btn btn-primary" id="video-btn" type="button">Video</button>
 				</div>
-				<div class="checkbox col-md-4">
+				<div class="checkbox col-md-5">
 				    <label>
 				      <input type="checkbox" name='webcam-on' checked="checked"> Open My Webcam
 				    </label>
@@ -91,12 +91,7 @@
 	</div>
 </div>
 <div id="videoChat">
-	<div id="draggable" class="ui-widget-content" style="display:none">
-		<div id="video-display-me">
-            <span class="glyphicon glyphicon-flash"></span>
-        </div>
-	</div>
-	<div id="draggable" class="ui-widget-content" style="display:none">
+	<div id="draggable-model" class="ui-widget-content" style="display:none">
 		<div id="video-display">
             <span class="glyphicon glyphicon-flash"></span>
         </div>
@@ -108,6 +103,11 @@
 	            <span class="glyphicon glyphicon-ban-circle"></span>
 	        </button> 
     	</div>
+	</div>
+	<div id="draggable" class="ui-widget-content" style="display:none">
+		<div id="video-display-me">
+            <span class="glyphicon glyphicon-flash"></span>
+        </div>
 	</div>
 </div>
 {% endblock %}
