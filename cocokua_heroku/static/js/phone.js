@@ -46,7 +46,7 @@ function VideoPhone(){
 			$( cln ).draggable({
 		  		opacity: 0.35
 			});
-			var video_out = PUBNUB.$(cln).children('#video-display');
+			var video_out = $(cln).children('#video-display');
 			video_out.innerHTML = '';
     		video_out.appendChild(session.video);
 			container.appendChild(cln); 
