@@ -25,7 +25,7 @@ function VideoPhone(){
     phone.ready(function(){
     	//
     	var container = document.getElementById('videoChat');
-    	if(container.children('video-display-me')==null){
+    	if($(container).children('video-display-me')==null){
     		var newId = 'video-display-me';
         	var container = document.getElementById('videoChat');
 			var videoChat = document.getElementById('draggable');
