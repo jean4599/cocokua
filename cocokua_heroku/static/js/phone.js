@@ -46,13 +46,14 @@ function VideoPhone(){
 			$( cln ).draggable({
 		  		opacity: 0.35
 			});
+			$(cln).children('#video-display').attr('id',newId);
+			container.appendChild(cln); 
+
 			var newId = 'video-display-'+session.number;
 			console.log(newId);
-			$(cln).children('#video-display').attr('id',newId);
 			var video_out = PUBNUB.$(newId);
 			video_out.innerHTML = '';
     		video_out.appendChild(session.video);
-			container.appendChild(cln); 
         });
 
     });
