@@ -3,7 +3,9 @@ var channelID = 'cocokua'+videoID+roomID;
 
 PUBNUB_chat = PUBNUB.init({
         publish_key: 'pub-c-8b2af6e6-5e78-4909-b26a-14e2894e34b4',
-        subscribe_key: 'sub-c-37fe5e96-1d07-11e6-b700-0619f8945a4f'
+        subscribe_key: 'sub-c-37fe5e96-1d07-11e6-b700-0619f8945a4f',
+        ssl : (('https:' == document.location.protocol) ? true : false)
+
     });
 
 // Subscribe to the channel
