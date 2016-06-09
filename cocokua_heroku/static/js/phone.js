@@ -20,15 +20,7 @@ phone.ready(function(){
 	});
 });
 function makeCall(){
-	//show my video
-	var container = document.getElementById('draggable-me');
-	var videoDisplay = document.getElementById('video-display-me');
-	container.style.display="block";
-	$( videoDisplay ).draggable({
-  		opacity: 0.35
-	});
-	videoDisplay.innerHTML = '';
-	$(videoDisplay).append(phone.video);
+	setLocalVideo();
 
 	//members is defined in memberlist.js
     var sessions = [];
@@ -58,24 +50,35 @@ function connected(session) {
 	});
 	container.appendChild(cln); 
 	$(cln).children('#video-display').attr('id',newId);
-	$(cln).children('#facetime-off').attr('id','facetime-off-'+session.number);
-	$(cln).children('#hangup').attr('id','hangup-'+session.number);
+	$(cln).children('#facetime-off').click(function(){
+		phone.media={video:false,audio:true}
+        set_icon(video_out,'facetime-video');
+	});
+	$(cln).children('#hangup').click(function(){
+		session.hangup();
+		set_icon(video_out,'facetime-video');
+	})
 
 	console.log(newId);
 	var video_out = PUBNUB.$(newId);
 	video_out.innerHTML = '';
     video_out.appendChild(session.video);
 
-// Bind btn action
-    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
-        session.hangup();
-        set_icon(video_out,'facetime-video');
-    } );
-     PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-off-'+session.number), function() {
-        phone.media={video:false,audio:true}
-        set_icon(video_out,'facetime-video');
-    } );
+ 	setLocalVideo();
     console.log("Hi!");
+}
+function setLocalVideo(){
+	//show my video
+	var container = document.getElementById('draggable-me');
+	var videoDisplay = document.getElementById('video-display-me');
+	if(container.style.display==none){
+		container.style.display="block";
+		$( videoDisplay ).draggable({
+	  		opacity: 0.35
+		});
+		videoDisplay.innerHTML = '';
+		$(videoDisplay).append(phone.video);	
+	}
 }
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Video Session Ended
