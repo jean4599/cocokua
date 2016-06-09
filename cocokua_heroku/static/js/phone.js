@@ -18,7 +18,7 @@ var phone = window.phone = PHONE({
     });
 phone.ready(function(){
 	var container = document.getElementById('videoChat');
-    	if($(container).children('video-display-me')==null){
+    	//if($(container).children('video-display-me')==null){
     		var newId = 'video-display-me';
         	var container = document.getElementById('videoChat');
 			var videoChat = document.getElementById('draggable');
@@ -32,7 +32,7 @@ phone.ready(function(){
 			var video_out = $('#'+newId);
 			video_out.innerHTML = '';
 			video_out.append(phone.video);
-    	}
+    	//}
 });
 function makeCall(){
 	//members is defined in memberlist.js
@@ -46,26 +46,41 @@ function makeCall(){
 		//     friend.ended(function(session){     /* call ended     */ });
 		// });
 }
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Receiver for Calls
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 phone.receive(function(session){
-
-        // Display Your Friend's Live Video
-        session.connected(function(session){
-   //      	var newId = 'video-display-'+session.number;
-   //      	var container = document.getElementById('videoChat');
-			// var videoChat = document.getElementById('draggable');
-			// var cln = videoChat.cloneNode(true);
-			// cln.style.display="block";
-			// $( cln ).draggable({
-		 //  		opacity: 0.35
-			// });
-			// container.appendChild(cln); 
-			// $(cln).children('#video-display').attr('id',newId);
-
-			// console.log(newId);
-			// var video_out = PUBNUB.$(newId);
-			var video_out = PUBNUB.$('video-display-god');
-			video_out.innerHTML = '';
-    		video_out.append(session.video);
-        });
-
+    session.connected(connected);
 });
+function connected(session) {
+	var video_out = PUBNUB.$('video-display-god');
+    video_out.innerHTML = '';
+    video_out.appendChild(session.video);
+
+    PUBNUB.$('number').value = ''+session.number;
+    sounds.play('sound/hi');
+    console.log("Hi!");
+}
+// phone.receive(function(session){
+
+//         // Display Your Friend's Live Video
+//         session.connected(function(session){
+//    //      	var newId = 'video-display-'+session.number;
+//    //      	var container = document.getElementById('videoChat');
+// 			// var videoChat = document.getElementById('draggable');
+// 			// var cln = videoChat.cloneNode(true);
+// 			// cln.style.display="block";
+// 			// $( cln ).draggable({
+// 		 //  		opacity: 0.35
+// 			// });
+// 			// container.appendChild(cln); 
+// 			// $(cln).children('#video-display').attr('id',newId);
+
+// 			// console.log(newId);
+// 			// var video_out = PUBNUB.$(newId);
+// 			var video_out = PUBNUB.$('video-display-god');
+// 			video_out.innerHTML = '';
+//     		video_out.appendChild(session.video);
+//         });
+
+// });
