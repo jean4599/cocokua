@@ -39,6 +39,7 @@ function VideoPhone(){
 
         // Display Your Friend's Live Video
         session.connected(function(session){
+        	var newId = 'video-display-'+session.number;
         	var container = document.getElementById('videoChat');
 			var videoChat = document.getElementById('draggable');
 			var cln = videoChat.cloneNode(true);
@@ -46,10 +47,9 @@ function VideoPhone(){
 			$( cln ).draggable({
 		  		opacity: 0.35
 			});
-			$(cln).children('#video-display').attr('id',newId);
 			container.appendChild(cln); 
+			$(cln).children('#video-display').attr('id',newId);
 
-			var newId = 'video-display-'+session.number;
 			console.log(newId);
 			var video_out = PUBNUB.$(newId);
 			video_out.innerHTML = '';
