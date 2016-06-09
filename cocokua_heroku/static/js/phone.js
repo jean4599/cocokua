@@ -21,9 +21,9 @@ phone.ready(function(){
 });
 function makeCall(){
 	//show my video
-	var container = document.getElementById('videoChat');
+	var container = document.getElementById('draggable-me');
 	var videoDisplay = document.getElementById('video-display-me');
-	videoDisplay.style.display="block";
+	container.style.display="block";
 	$( videoDisplay ).draggable({
   		opacity: 0.35
 	});
