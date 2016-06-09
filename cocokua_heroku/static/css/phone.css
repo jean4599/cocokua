@@ -4,6 +4,12 @@
  padding: 0.5em;
  z-index: 10000; 
 }
+#videoChat {
+ width: 320px;
+ height: 180px; 
+ padding: 0.5em;
+ z-index: 10000; 
+}
 #call-option{
 	position: absolute;
 	top:40px;
