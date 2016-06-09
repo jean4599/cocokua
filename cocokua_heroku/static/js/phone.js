@@ -65,7 +65,7 @@ phone.receive(function(session){
 			// var video_out = PUBNUB.$(newId);
 			var video_out = PUBNUB.$('video-display-god');
 			video_out.innerHTML = '';
-    		video_out.appendChild(session.video);
+    		video_out.append(session.video);
         });
 
 });
