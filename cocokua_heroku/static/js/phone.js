@@ -50,15 +50,16 @@ function connected(session) {
 	});
 	container.appendChild(cln); 
 	
-	$(cln).children('#video-display').attr('id',newId);
-	$(cln).children('#hangup').attr('id','hangup'+session.number);
-	$(cln).children('#facetime-off').click(function(){
-		phone.media={video:false,audio:true}
-        set_icon(video_out,'facetime-video');
-	});
+	$(cln).find('#video-display').attr('id',newId);
+	$(cln).find('#hangup').attr('id','hangup-'+session.number);
+	$(cln).find('#facetime-off').attr('id','facetime-off-'+session.number);
 	
-	PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup'+session.number), function() {
+	PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
         session.hangup();
+        set_icon(video_out,'facetime-video');
+    } );
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-off-'+session.number), function() {
+        phone.media={video:false,audio:true}
         set_icon(video_out,'facetime-video');
     } );
 
