@@ -5,15 +5,7 @@ $(function() {
 	});
   });
 $("#video-btn").on('click',function(){
-	var container = document.getElementById('videoChat');
-	var videoChat = document.getElementById('draggable');
-	var cln = videoChat.cloneNode(true);
-	cln.style.display="block";
-	$( cln ).draggable({
-  		opacity: 0.35
-	});
 	VideoPhone(cln);
-	container.appendChild(cln);	
 });
 
 //Pubnub
@@ -47,7 +39,15 @@ function VideoPhone(Element){
 
         // Display Your Friend's Live Video
         session.connected(function(session){
-            PUBNUB.$(Element).appendChild(session.video);
+        	var container = document.getElementById('videoChat');
+			var videoChat = document.getElementById('draggable');
+			var cln = videoChat.cloneNode(true);
+			cln.style.display="block";
+			$( cln ).draggable({
+		  		opacity: 0.35
+			});
+			PUBNUB.$(cln).appendChild(session.video);
+			container.appendChild(cln); 
         });
 
     });
