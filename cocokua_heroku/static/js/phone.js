@@ -66,7 +66,8 @@ function connected(session) {
 
 	console.log(newId);
 	var video_out = PUBNUB.$(newId);
-
+	video_out.innerHTML = '';
+    video_out.appendChild(session.video);
     console.log("Hi!");
 }
 // phone.receive(function(session){
