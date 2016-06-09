@@ -58,10 +58,29 @@ function connected(session) {
 	});
 	container.appendChild(cln); 
 	$(cln).children('#video-display').attr('id',newId);
+	$(cln).children('#facetime-off').attr('id','facetime-off-'+session.number);
+	$(cln).children('#hangup').attr('id','hangup-'+session.number);
 
 	console.log(newId);
 	var video_out = PUBNUB.$(newId);
 	video_out.innerHTML = '';
     video_out.appendChild(session.video);
+
+// Bind btn action
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
+        session.hangup();
+        set_icon(video_out,'facetime-video');
+    } );
+     PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-off-'+session.number), function() {
+        phone.media={video:false,audio:true}
+        set_icon(video_out,'facetime-video');
+    } );
     console.log("Hi!");
+}
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+// Video Session Ended
+// -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+function set_icon(ele,icon) {
+    $(ele).innerHTML = '<span class="glyphicon glyphicon-' +
+        icon + '"></span>';
 }
