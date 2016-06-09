@@ -56,9 +56,6 @@ function connected(session) {
 	var video_out = PUBNUB.$('video-display-god');
     video_out.innerHTML = '';
     video_out.appendChild(session.video);
-
-    PUBNUB.$('number').value = ''+session.number;
-    sounds.play('sound/hi');
     console.log("Hi!");
 }
 // phone.receive(function(session){
