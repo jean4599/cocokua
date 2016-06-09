@@ -71,7 +71,7 @@ function setLocalVideo(){
 	//show my video
 	var container = document.getElementById('draggable-me');
 	var videoDisplay = document.getElementById('video-display-me');
-	if(container.style.display==none){
+	if(container.style.display=='none'){
 		container.style.display="block";
 		$( videoDisplay ).draggable({
 	  		opacity: 0.35
