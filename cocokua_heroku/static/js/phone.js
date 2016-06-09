@@ -5,13 +5,13 @@ $(function() {
 	});
   });
 $("#video-btn").on('click',function(){
-	VideoPhone(cln);
+	VideoPhone();
 });
 
 //Pubnub
 var phoneNumber = userFBID;
 
-function VideoPhone(Element){
+function VideoPhone(){
     // The phone *number* can by any string value
     var phone = PHONE({
         number        : phoneNumber,
