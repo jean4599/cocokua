@@ -8,6 +8,10 @@ from flask_sslify import SSLify
 app = Flask(__name__)
 sslify = SSLify(app)
 
+@app.route("/webrtc")
+def cocokua_home():
+	return render_template('index_webrtc.html')
+
 @app.route("/")
 def cocokua_home():
 	return render_template('index.html')
