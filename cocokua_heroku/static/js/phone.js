@@ -31,9 +31,9 @@ function VideoPhone(Element){
 
     // As soon as the phone is ready we can make calls
     phone.ready(function(){
-
+    	//members is defined in memberlist.js
         var sessions = [];
-        	for (i=0;i<memberlist.length;i++){
+        	for (i=0;i<members.length;i++){
         		sessions.push(phone.dial(memberlist[i]));
         	}
 			sessions.forEach(function(friend){
