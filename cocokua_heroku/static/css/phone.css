@@ -13,8 +13,7 @@
  	height: 180px; 
 }
 video{
-	width: inherit;
-	height: inherit;
+	width: 240px;
 }
 #call-option{
 	position: absolute;
