@@ -16,8 +16,12 @@
 	<div id="canvas">
 		<div id='call-option'>
 			<strong> Call to your friend: </strong>
-			<button class="btn btn-primary" id="audio-btn" type="button">Audio</button>
 			<button class="btn btn-primary" id="video-btn" type="button">Video</button>
+			<div class="checkbox">
+			    <label>
+			      <input type="checkbox" name='webcam-on' checked="checked"> Open My Webcam
+			    </label>
+		    </div>
 		</div>
 		<!-- Painting Tools -->
 		<div id='wrapper'>
@@ -84,6 +88,11 @@
 </div>
 <div id="videoChat">
 	<div id="draggable" class="ui-widget-content" style="display:none">
+		<div id="video-display-me">
+            <span class="glyphicon glyphicon-flash"></span>
+        </div>
+	</div>
+	<div id="draggable" class="ui-widget-content" style="display:none">
 		<div id="video-display">
             <span class="glyphicon glyphicon-flash"></span>
         </div>
@@ -97,19 +106,6 @@
     	</div>
 	</div>
 </div>
-<!-- <div id="videoChat">
-		<div id="video-display-god">
-            <span class="glyphicon glyphicon-flash"></span>
-        </div>
-        <div class="row">
-	 		<button id="dial" class="btn btn-primary">
-	            <span class="glyphicon glyphicon-earphone"></span>
-	        </button>
-	        <button id="hangup" class="btn btn-danger">
-	            <span class="glyphicon glyphicon-ban-circle"></span>
-	        </button> 
-    	</div>
-</div> -->
 {% endblock %}
 
 {% block script %}
