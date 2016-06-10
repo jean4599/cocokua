@@ -60,10 +60,11 @@ function connected(session) {
 
 	PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
         session.hangup();
+        $(cln).find('#close').show();
     } );
     PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
-        phone.dial(session.number);
-        $(cln).find('#close').show();
+  	     phone.dial(session.number);
+
     } );
 
 	console.log(newId);
