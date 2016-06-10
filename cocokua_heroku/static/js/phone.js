@@ -18,7 +18,7 @@ function createVideoPhone(){
 	        media         : { audio : true, video : true},
     });
 	phone.ready(function(){
-	    $("#video-btn").on('click',function(){
+	    $("#call").on('click',function(){
 			makeCall();
 		});
 	});
@@ -29,10 +29,10 @@ function createVideoPhone(){
 	$('#phone-on').hide();
 	$('#call-option').show();
 	$('#phone-off').show();
-	$('#phone-off').click(){
+	$('#phone-off').click(function(){
 		phone=null;
 		$('#call-option').hide();
-	}
+	});
 }
 function createAudioPhone(){
 	var phoneNumber = userFBID;
@@ -44,7 +44,7 @@ function createAudioPhone(){
 	        media         : { audio : true, video : false },
 	    });
 	phone.ready(function(){
-	    $("#video-btn").on('click',function(){
+	    $("#call").on('click',function(){
 			makeCall();
 		});
 	});
@@ -55,10 +55,10 @@ function createAudioPhone(){
 	$('#phone-on').hide();
 	$('#call-option').show();
 	$('#phone-off').show();
-	$('#phone-off').click(){
+	$('#phone-off').click(function(){
 		phone=null;
 		$('#call-option').hide();
-	}
+	});
 }
 function makeCall(){
 	setLocalVideo();
