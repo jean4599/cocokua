@@ -23,8 +23,8 @@ function createVideoPhone(){
 		});
 	});
 	phone.receive(function(session){
-	    session.connected(connected);
-	    session.ended(ended);
+	    session.connected(VideoConnected);
+	    session.ended(VideoEnded);
 	});
 	$('#phone-on').hide();
 	$('#call').show();
@@ -33,6 +33,7 @@ function createVideoPhone(){
 		phone=null;
 		$('#call').hide();
 		$('#phone-on').show();
+		$('#phone-off').hide();
 	});
 }
 function createAudioPhone(){
@@ -50,8 +51,8 @@ function createAudioPhone(){
 		});
 	});
 	phone.receive(function(session){
-	    session.connected(connected);
-	    session.ended(ended);
+	    session.connected(AudioConnected);
+	    session.ended(AudioEnded);
 	});
 	$('#phone-on').hide();
 	$('#call').show();
@@ -81,7 +82,7 @@ function makeCall(){
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Receiver for Calls
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-function connected(session) {
+function VideoConnected(session) {
 	var newId = 'video-display-'+session.number;
 	var container = document.getElementById('videoChat');
 	var videoChat = document.getElementById('draggable');
@@ -110,15 +111,75 @@ function connected(session) {
   	     phone.dial(session.number);
 
     } );
+    var id='#facetime-'+session.number; //hide call btn
+    $(id).hide();
+    var id='#hangup-'+session.number;  //show hangup btn
+    $(id).show();
+    var id='#'+newId;
+    $(id).parent().find('#close').hide(); //hide close btn
+ 	setLocalVideo();
+    console.log("Hi!");
+}
+function AudioConnected(session) {
+	var newId = 'video-display-'+session.number;
+	var container = document.getElementById('videoChat');
+	var videoChat = document.getElementById('draggable');
+	if(document.getElementById(newId)==null){
+
+		var cln = videoChat.cloneNode(true);
+		cln.style.display="block";
+		$( cln ).draggable({
+	  		opacity: 0.35
+		});
+		container.appendChild(cln); 
+		
+		$(cln).find('#video-display').attr('id',newId);
+		$(cln).find('#hangup').attr('id','hangup-'+session.number);
+		$(cln).find('#earphone').attr('id','earphone-'+session.number);
+		console.log(newId);
+	}
+	var video_out = PUBNUB.$(newId);
+	video_out.innerHTML = '';
+    video_out.appendChild(session.video);
+    //bind pubnub event
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
+	        session.hangup();
+    } );
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
+  	     phone.dial(session.number);
+
+    } );
+    var id='#earphone-'+session.number; //hide call btn
+    $(id).hide();
+    var id='#hangup-'+session.number;  //show hangup btn
+    $(id).show();
     var id='#'+newId;
     $(id).parent().find('#close').hide();
  	setLocalVideo();
     console.log("Hi!");
 }
-function ended(session){
+
+function VideoEnded(session){
 	console.log('Bye '+session.number);
+	var id = '#facetime-'+session.number;
+	$(id).show();
+	var id = '#hangup-'+session.number;
+	$(id).hide();
 	var ele = '#video-display-'+session.number;
 	$(ele).html('<span class="glyphicon glyphicon-facetime-video"></span>') ;
+	$(ele).parent().find('#close').show();
+	$(ele).parent().find('#close').click(function(){
+		$(ele).parent().remove();
+	});
+}
+function AudioEnded(session){
+	console.log('Bye '+session.number);
+	var id = '#earphone-'+session.number;
+	$(id).show();
+	var id = '#hangup-'+session.number;
+	$(id).hide();
+	var ele = '#video-display-'+session.number;
+	$(ele).html('<span class="glyphicon glyphicon-ban-circle"></span>') ;
 	$(ele).parent().find('#close').show();
 	$(ele).parent().find('#close').click(function(){
 		$(ele).parent().remove();
