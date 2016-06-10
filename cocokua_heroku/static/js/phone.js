@@ -28,10 +28,12 @@ function makeCall(){
     		if(members[i]!=userFBID)
     			sessions.push(phone.dial(members[i]));
     	}
-		sessions.forEach(function(friend){
-		    friend.connected(function(session){ /* call connected */ });
-		    friend.ended(function(session){     /* call ended     */ });
-		});
+    	if(sessions!=[]){
+    		sessions.forEach(function(friend){
+			    friend.connected(function(session){ /* call connected */ });
+			    friend.ended(function(session){     /* call ended     */ });
+			});
+    	}		
 }
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Receiver for Calls
@@ -66,10 +68,10 @@ function connected(session) {
 	    } );
 
 		console.log(newId);
-		var video_out = PUBNUB.$(newId);
-		video_out.innerHTML = '';
-	    video_out.appendChild(session.video);
 	}
+	var video_out = PUBNUB.$(newId);
+	video_out.innerHTML = '';
+    video_out.appendChild(session.video);
  	setLocalVideo();
     console.log("Hi!");
 }

@@ -11,6 +11,9 @@
 #video-display{
 	width: 320px;
  	height: 180px; 
+    text-align: center;
+    color: #eee;
+    font-size: 150px;
 }
 video{
 	width: 240px;
