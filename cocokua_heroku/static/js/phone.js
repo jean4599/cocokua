@@ -31,12 +31,11 @@ function createVideoPhone(){
 	$('#call').show();
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
-		phone = phone = window.phone = PHONE({
-	        number        : phoneNumber,
+		phone = window.phone = PHONE({
+	        number        : 'x',
 	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
 	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
 	        ssl           : true,
-	        media         : { audio : false, video : false},
    		 });
 		$('#call').hide();
 		$('#phone-on').show();
@@ -66,11 +65,10 @@ function createAudioPhone(){
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
 		phone = window.phone = PHONE({
-	        number        : phoneNumber,
+	        number        : 'x',
 	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
 	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
 	        ssl           : true,
-	        media         : { audio : false, video : false},
    		 });
 		$('#call').hide();
 		$('#phone-on').show();
