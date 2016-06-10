@@ -44,7 +44,6 @@ function connected(session) {
 	var newId = 'video-display-'+session.number;
 	var container = document.getElementById('videoChat');
 	var videoChat = document.getElementById('draggable');
-	var id = '#'+newId;
 	if(document.getElementById(newId)==null){
 
 		var cln = videoChat.cloneNode(true);
