@@ -75,7 +75,7 @@ function connected(session) {
     console.log("Hi!");
 }
 function ended(session){
-	console.log('Bye');
+	console.log('Bye'+session.number);
 	$('#video-display-'+session.number).innerHTML = '<span class="glyphicon glyphicon-facetime-video"></span>';
 	$('#video-display-'+session.number).find('#close').show();
 	$('#video-display-'+session.number).find('#close').click(function(){
