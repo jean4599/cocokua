@@ -63,6 +63,7 @@ function connected(session) {
 	var video_out = PUBNUB.$(newId);
 	video_out.innerHTML = '';
     video_out.appendChild(session.video);
+    //bind pubnub event
     PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
 	        session.hangup();
     } );
@@ -70,6 +71,8 @@ function connected(session) {
   	     phone.dial(session.number);
 
     } );
+    var id='#'+newId;
+    $(id).parent().find('#close').hide();
  	setLocalVideo();
     console.log("Hi!");
 }
