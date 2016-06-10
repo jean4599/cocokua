@@ -75,11 +75,12 @@ function connected(session) {
     console.log("Hi!");
 }
 function ended(session){
-	console.log('Bye'+session.number);
-	$('#video-display-'+session.number).innerHTML = '<span class="glyphicon glyphicon-facetime-video"></span>';
-	$('#video-display-'+session.number).find('#close').show();
-	$('#video-display-'+session.number).find('#close').click(function(){
-		$('#video-display-'+session.number).parent().remove();
+	console.log('Bye '+session.number);
+	var ele = '#video-display-'+session.number;
+	$(ele).innerHTML = '<span class="glyphicon glyphicon-facetime-video"></span>';
+	$(ele).find('#close').show();
+	$(ele).find('#close').click(function(){
+		$(ele).parent().remove();
 	});
 }
 function setLocalVideo(){
