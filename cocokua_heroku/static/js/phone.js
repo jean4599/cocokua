@@ -38,6 +38,7 @@ function makeCall(){
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 phone.receive(function(session){
     session.connected(connected);
+    session.ended(ended);
 });
 function connected(session) {
 	var newId = 'video-display-'+session.number;
@@ -52,15 +53,17 @@ function connected(session) {
 	
 	$(cln).find('#video-display').attr('id',newId);
 	$(cln).find('#hangup').attr('id','hangup-'+session.number);
-	$(cln).find('#facetime-off').attr('id','facetime-off-'+session.number);
-	
+	$(cln).find('#facetime').attr('id','facetime-'+session.number
+	$(cln).find('#close').click(function(){
+		videoChat.remove();
+	});
+
 	PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
         session.hangup();
-        set_icon(video_out,'facetime-video');
     } );
-    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-off-'+session.number), function() {
-        phone.media={video:false,audio:true}
-        set_icon(video_out,'facetime-video');
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
+        phone.dial(session.number);
+        $(cln).find('#close').show();
     } );
 
 	console.log(newId);
@@ -70,6 +73,9 @@ function connected(session) {
 
  	setLocalVideo();
     console.log("Hi!");
+}
+function ended(session){
+	$('#video-display-'+session.number).innerHTML = '<span class="glyphicon glyphicon-facetime-video"></span>';
 }
 function setLocalVideo(){
 	//show my video
