@@ -60,7 +60,6 @@ function createAudioPhone(){
 	$('#call').show();
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
-		phone.stop();
 		phone = null;
 		$('#call').hide();
 		$('#phone-on').show();
