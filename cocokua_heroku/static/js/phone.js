@@ -56,13 +56,10 @@ function connected(session) {
 		$(cln).find('#video-display').attr('id',newId);
 		$(cln).find('#hangup').attr('id','hangup-'+session.number);
 		$(cln).find('#facetime').attr('id','facetime-'+session.number);
-		$(cln).find('#close').click(function(){
-			videoChat.remove();
-		});
+		$(cln).find('#close').attr('id','close-'+session.number);
 
 		PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
 	        session.hangup();
-	        $(cln).find('#close').show();
 	    } );
 	    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
 	  	     phone.dial(session.number);
@@ -78,7 +75,10 @@ function connected(session) {
     console.log("Hi!");
 }
 function ended(session){
+	console.log('Bye');
 	$('#video-display-'+session.number).innerHTML = '<span class="glyphicon glyphicon-facetime-video"></span>';
+	$('#video-display-'+session.number).find('#close').show();
+	$('#video-display-'+session.number).find('#close').click = $('#video-display-'+session.number).remove();
 }
 function setLocalVideo(){
 	//show my video
