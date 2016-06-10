@@ -32,6 +32,7 @@ function createVideoPhone(){
 	$('#phone-off').click(function(){
 		phone=null;
 		$('#call-option').hide();
+		$('#phone-on').show();
 	});
 }
 function createAudioPhone(){
@@ -58,6 +59,7 @@ function createAudioPhone(){
 	$('#phone-off').click(function(){
 		phone=null;
 		$('#call-option').hide();
+		$('#phone-on').show();
 	});
 }
 function makeCall(){
