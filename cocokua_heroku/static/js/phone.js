@@ -91,7 +91,7 @@ function setLocalVideo(){
 	var videoDisplay = document.getElementById('video-display-me');
 	if(container.style.display=='none'){
 		container.style.display="block";
-		$( videoDisplay ).draggable({
+		$( container ).draggable({
 	  		opacity: 0.35
 		});
 		videoDisplay.innerHTML = '';
