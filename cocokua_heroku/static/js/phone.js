@@ -111,6 +111,7 @@ function VideoConnected(session) {
 		$(cln).find('#video-display').attr('id',newId);
 		$(cln).find('#hangup').attr('id','hangup-'+session.number);
 		$(cln).find('#facetime').attr('id','facetime-'+session.number);
+		$(cln).find('#earphone').attr('id','earphone-'+session.number);
 		console.log(newId);
 	}
 	var video_out = PUBNUB.$(newId);
@@ -149,6 +150,7 @@ function AudioConnected(session) {
 		$(cln).find('#video-display').attr('id',newId);
 		$(cln).find('#hangup').attr('id','hangup-'+session.number);
 		$(cln).find('#earphone').attr('id','earphone-'+session.number);
+		$(cln).find('#facetime').attr('id','facetime-'+session.number);
 		console.log(newId);
 	}
 	var video_out = PUBNUB.$(newId);
@@ -164,6 +166,8 @@ function AudioConnected(session) {
     } );
     var id='#earphone-'+session.number; //hide call btn
     $(id).hide();
+    var id='#facetime-'+session.number; //hide call btn
+    $(id).hide();
     var id='#hangup-'+session.number;  //show hangup btn
     $(id).show();
     var id='#'+newId;
@@ -176,6 +180,8 @@ function VideoEnded(session){
 	console.log('Bye '+session.number);
 	var id = '#facetime-'+session.number;
 	$(id).show();
+	var id = '#earphone-'+session.number;
+	$(id).hide();
 	var id = '#hangup-'+session.number;
 	$(id).hide();
 	var ele = '#video-display-'+session.number;
@@ -189,6 +195,8 @@ function AudioEnded(session){
 	console.log('Bye '+session.number);
 	var id = '#earphone-'+session.number;
 	$(id).show();
+	var id = '#facetime-'+session.number;
+	$(id).hide();
 	var id = '#hangup-'+session.number;
 	$(id).hide();
 	var ele = '#video-display-'+session.number;
