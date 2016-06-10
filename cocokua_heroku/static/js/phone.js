@@ -78,7 +78,9 @@ function ended(session){
 	console.log('Bye');
 	$('#video-display-'+session.number).innerHTML = '<span class="glyphicon glyphicon-facetime-video"></span>';
 	$('#video-display-'+session.number).find('#close').show();
-	$('#video-display-'+session.number).find('#close').click = $('#video-display-'+session.number).remove();
+	$('#video-display-'+session.number).find('#close').click(function(){
+		$('#video-display-'+session.number).parent().remove();
+	});
 }
 function setLocalVideo(){
 	//show my video
