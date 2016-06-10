@@ -8,7 +8,7 @@
  height: 180px; 
  z-index: 10000; 
 }
-#video-display{
+.video-display{
 	width: 320px;
  	height: 180px; 
     text-align: center;

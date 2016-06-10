@@ -58,20 +58,18 @@ function connected(session) {
 		$(cln).find('#video-display').attr('id',newId);
 		$(cln).find('#hangup').attr('id','hangup-'+session.number);
 		$(cln).find('#facetime').attr('id','facetime-'+session.number);
-
-		PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
-	        session.hangup();
-	    } );
-	    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
-	  	     phone.dial(session.number);
-
-	    } );
-
 		console.log(newId);
 	}
 	var video_out = PUBNUB.$(newId);
 	video_out.innerHTML = '';
     video_out.appendChild(session.video);
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
+	        session.hangup();
+    } );
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
+  	     phone.dial(session.number);
+
+    } );
  	setLocalVideo();
     console.log("Hi!");
 }
