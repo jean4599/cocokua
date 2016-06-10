@@ -31,6 +31,7 @@ function createVideoPhone(){
 	$('#call').show();
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
+		phone=null;
 		phone = window.phone = PHONE({
 	        number        : 'x',
 	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
@@ -64,6 +65,7 @@ function createAudioPhone(){
 	$('#call').show();
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
+		phone=null;
 		phone = window.phone = PHONE({
 	        number        : 'x',
 	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
