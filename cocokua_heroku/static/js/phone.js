@@ -27,7 +27,7 @@ function createVideoPhone(){
 	    session.connected(VideoConnected);
 	    session.ended(VideoEnded);
 	});
-	//$('#phone-on').hide();
+	$('#phone-on').hide();
 	$('#call').show();
 	// $('#phone-off').show();
 	// $('#phone-off').click(function(){
@@ -61,7 +61,7 @@ function createAudioPhone(){
 	    session.connected(AudioConnected);
 	    session.ended(AudioEnded);
 	});
-	//$('#phone-on').hide();
+	$('#phone-on').hide();
 	$('#call').show();
 	// $('#phone-off').show();
 	// $('#phone-off').click(function(){
@@ -209,6 +209,9 @@ function setLocalVideo(){
 		});
 		videoDisplay.innerHTML = '';
 		$(videoDisplay).append(phone.video);	
+		$(videoDisplay).parent().find('#close').click(function(){
+			$(videoDisplay).parent().remove();
+		});
 	}
 }
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
