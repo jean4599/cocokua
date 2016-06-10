@@ -1,4 +1,5 @@
 // ui
+var phone;
 $(function() {
     $( "#draggable" ).draggable({
   		opacity: 0.35
@@ -10,7 +11,7 @@ $(function() {
 //Pubnub
 function createVideoPhone(){
 	var phoneNumber = userFBID;
-	var phone = window.phone = PHONE({
+	phone = window.phone = PHONE({
 	        number        : phoneNumber,
 	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
 	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
@@ -30,7 +31,8 @@ function createVideoPhone(){
 	$('#call').show();
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
-		phone=null;
+		phone.stop();
+		phone = null;
 		$('#call').hide();
 		$('#phone-on').show();
 		$('#phone-off').hide();
@@ -38,7 +40,7 @@ function createVideoPhone(){
 }
 function createAudioPhone(){
 	var phoneNumber = userFBID;
-	var phone = window.phone = PHONE({
+	phone = window.phone = PHONE({
 	        number        : phoneNumber,
 	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
 	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
@@ -58,7 +60,8 @@ function createAudioPhone(){
 	$('#call').show();
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
-		phone=null;
+		phone.stop();
+		phone = null;
 		$('#call').hide();
 		$('#phone-on').show();
 	});
