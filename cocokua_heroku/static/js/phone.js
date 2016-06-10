@@ -4,7 +4,7 @@ $(function() {
   		opacity: 0.35
 	});
 	$('#open-video').click(createVideoPhone);
-	$('#open-audio').click(createAudio);
+	$('#open-audio').click(createAudioPhone);
   });
 
 //Pubnub
@@ -26,7 +26,13 @@ function createVideoPhone(){
 	    session.connected(connected);
 	    session.ended(ended);
 	});
+	$('#phone-on').hide();
 	$('#call-option').show();
+	$('#phone-off').show();
+	$('#phone-off').click(){
+		phone=null;
+		$('#call-option').hide();
+	}
 }
 function createAudioPhone(){
 	var phoneNumber = userFBID;
@@ -46,7 +52,13 @@ function createAudioPhone(){
 	    session.connected(connected);
 	    session.ended(ended);
 	});
+	$('#phone-on').hide();
 	$('#call-option').show();
+	$('#phone-off').show();
+	$('#phone-off').click(){
+		phone=null;
+		$('#call-option').hide();
+	}
 }
 function makeCall(){
 	setLocalVideo();
