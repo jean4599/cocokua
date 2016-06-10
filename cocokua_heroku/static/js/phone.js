@@ -210,7 +210,7 @@ function setLocalVideo(){
 		videoDisplay.innerHTML = '';
 		$(videoDisplay).append(phone.video);	
 		$(videoDisplay).parent().find('#close').click(function(){
-			$(videoDisplay).parent().remove();
+			$(videoDisplay).parent().hide();
 		});
 	}
 }
