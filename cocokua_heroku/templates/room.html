@@ -13,24 +13,25 @@
 
 {% block main %}
 <!-- Video and Audio Chat -->
-<div class='container'>
-<button type="button" class="btn btn-success" id='phone-on' data-toggle="modal" data-target="#myModal">Open My Phone</button>
-<button type="button" class="btn btn-danger" id='phone-off' data-toggle="modal" data-target="#myModal" style='display:none'>Close My Phone</button>
-	<div id='call-option' class='container' style='display:none'>
-		<div class='row'>
-			<strong class='col-md-5'> Call to your friend: </strong>
-			<div class="col-md-2">
-				<button class="btn btn-primary btn-sm" id="video-btn" type="button">Call</button>
-			</div>
-			<div class="checkbox col-md-5">
-			    <label>
-			      <input type="checkbox" name='webcam-on' checked="checked"> Open My Webcam
-			    </label>
-		    </div>
-		</div>
-	</div>
-</div>
+
 <div id="left">
+	<div class='container'>
+		<button type="button" class="btn btn-success" id='phone-on' data-toggle="modal" data-target="#myModal">Open My Phone</button>
+		<button type="button" class="btn btn-danger" id='phone-off' data-toggle="modal" data-target="#myModal" style='display:none'>Close My Phone</button>
+			<div id='call-option' class='container' style='display:none'>
+				<div class='row'>
+					<strong class='col-md-5'> Call to your friend: </strong>
+					<div class="col-md-2">
+						<button class="btn btn-primary btn-sm" id="video-btn" type="button">Call</button>
+					</div>
+					<div class="checkbox col-md-5">
+					    <label>
+					      <input type="checkbox" name='webcam-on' checked="checked"> Open My Webcam
+					    </label>
+				    </div>
+				</div>
+			</div>
+	</div>
 	<div id="canvas">		
 		<!-- Painting Tools -->
 		<div id='wrapper'>
