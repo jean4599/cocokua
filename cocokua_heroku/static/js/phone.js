@@ -56,7 +56,6 @@ function connected(session) {
 		$(cln).find('#video-display').attr('id',newId);
 		$(cln).find('#hangup').attr('id','hangup-'+session.number);
 		$(cln).find('#facetime').attr('id','facetime-'+session.number);
-		$(cln).find('#close').attr('id','close-'+session.number);
 
 		PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
 	        session.hangup();
@@ -77,7 +76,7 @@ function connected(session) {
 function ended(session){
 	console.log('Bye '+session.number);
 	var ele = '#video-display-'+session.number;
-	$(ele).innerHTML = '<span class="glyphicon glyphicon-facetime-video"></span>';
+	$(ele).html('<span class="glyphicon glyphicon-facetime-video"></span>') ;
 	$(ele).find('#close').show();
 	$(ele).find('#close').click(function(){
 		$(ele).parent().remove();
