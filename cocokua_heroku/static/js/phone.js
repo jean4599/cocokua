@@ -3,22 +3,51 @@ $(function() {
     $( "#draggable" ).draggable({
   		opacity: 0.35
 	});
+	$('#open-video').click(createVideoPhone);
+	$('#open-audio').click(createAudio);
   });
 
 //Pubnub
-var phoneNumber = userFBID;
-var phone = window.phone = PHONE({
-        number        : phoneNumber,
-        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
-        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
-        ssl           : true,
-        media         : { audio : true, video : $("input[name='webcam-on']").is(":checked") },
+function createVideoPhone(){
+	var phoneNumber = userFBID;
+	var phone = window.phone = PHONE({
+	        number        : phoneNumber,
+	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
+	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
+	        ssl           : true,
+	        media         : { audio : true, video : true},
     });
-phone.ready(function(){
-    $("#video-btn").on('click',function(){
-		makeCall();
+	phone.ready(function(){
+	    $("#video-btn").on('click',function(){
+			makeCall();
+		});
 	});
-});
+	phone.receive(function(session){
+	    session.connected(connected);
+	    session.ended(ended);
+	});
+	$('#call-option').show();
+}
+function createAudioPhone(){
+	var phoneNumber = userFBID;
+	var phone = window.phone = PHONE({
+	        number        : phoneNumber,
+	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
+	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
+	        ssl           : true,
+	        media         : { audio : true, video : false },
+	    });
+	phone.ready(function(){
+	    $("#video-btn").on('click',function(){
+			makeCall();
+		});
+	});
+	phone.receive(function(session){
+	    session.connected(connected);
+	    session.ended(ended);
+	});
+	$('#call-option').show();
+}
 function makeCall(){
 	setLocalVideo();
 
@@ -38,10 +67,6 @@ function makeCall(){
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 // Receiver for Calls
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-phone.receive(function(session){
-    session.connected(connected);
-    session.ended(ended);
-});
 function connected(session) {
 	var newId = 'video-display-'+session.number;
 	var container = document.getElementById('videoChat');

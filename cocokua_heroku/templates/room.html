@@ -14,7 +14,8 @@
 {% block main %}
 <div id="left">
 	<div id="canvas">
-		<div id='call-option' class='container'>
+		<button type="button" class="btn btn-success" id='phone' data-toggle="modal" data-target="#myModal">Open My Phone</button>
+		<div id='call-option' class='container' style='display:none'>
 			<div class='row'>
 				<strong class='col-md-5'> Call to your friend: </strong>
 				<div class="col-md-2">
@@ -121,13 +122,11 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">You Are Invited to Join a Video Chat</h4>
+          <h4 class="modal-title">請選擇你要開啟的模式</h4>
         </div>
         <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button class='btn btn-primary' id='open-video' data-dismiss="modal">開啟視訊和語音通話</button>
+          <button class='btn btn-primary' id='open-audio' data-dismiss="modal">開啟語音通話</button>
         </div>
       </div>
       
