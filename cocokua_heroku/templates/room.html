@@ -13,21 +13,21 @@
 
 {% block main %}
 <div id="left">
-	<div id="canvas">
-		<button type="button" class="btn btn-success" id='phone' data-toggle="modal" data-target="#myModal">Open My Phone</button>
-		<div id='call-option' class='container' style='display:none'>
-			<div class='row'>
-				<strong class='col-md-5'> Call to your friend: </strong>
-				<div class="col-md-2">
-					<button class="btn btn-primary btn-sm" id="video-btn" type="button">Call</button>
-				</div>
-				<div class="checkbox col-md-5">
-				    <label>
-				      <input type="checkbox" name='webcam-on' checked="checked"> Open My Webcam
-				    </label>
-			    </div>
+	<button type="button" class="btn btn-success" id='phone' data-toggle="modal" data-target="#myModal">Open My Phone</button>
+	<div id='call-option' class='container' style='display:none'>
+		<div class='row'>
+			<strong class='col-md-5'> Call to your friend: </strong>
+			<div class="col-md-2">
+				<button class="btn btn-primary btn-sm" id="video-btn" type="button">Call</button>
 			</div>
+			<div class="checkbox col-md-5">
+			    <label>
+			      <input type="checkbox" name='webcam-on' checked="checked"> Open My Webcam
+			    </label>
+		    </div>
 		</div>
+	</div>
+	<div id="canvas">		
 		<!-- Painting Tools -->
 		<div id='wrapper'>
 			<table id="option1">
@@ -154,6 +154,7 @@
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <script src="https://cdn.pubnub.com/pubnub-3.14.7.js"></script>
+<script src="../static/bootstrap/js/bootstrap.min.js"></script>
 <script src="../static/jquery-ui/jquery-ui.js"></script>
 <script src="../static/js/videosync.js"></script>
 <script src="../static/js/playersetup.js"></script>
