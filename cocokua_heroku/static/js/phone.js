@@ -44,34 +44,36 @@ function connected(session) {
 	var newId = 'video-display-'+session.number;
 	var container = document.getElementById('videoChat');
 	var videoChat = document.getElementById('draggable');
-	var cln = videoChat.cloneNode(true);
-	cln.style.display="block";
-	$( cln ).draggable({
-  		opacity: 0.35
-	});
-	container.appendChild(cln); 
-	
-	$(cln).find('#video-display').attr('id',newId);
-	$(cln).find('#hangup').attr('id','hangup-'+session.number);
-	$(cln).find('#facetime').attr('id','facetime-'+session.number
-	$(cln).find('#close').click(function(){
-		videoChat.remove();
-	});
+	if($(cln).find('#video-display')!=null){
 
-	PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
-        session.hangup();
-        $(cln).find('#close').show();
-    } );
-    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
-  	     phone.dial(session.number);
+		var cln = videoChat.cloneNode(true);
+		cln.style.display="block";
+		$( cln ).draggable({
+	  		opacity: 0.35
+		});
+		container.appendChild(cln); 
+		
+		$(cln).find('#video-display').attr('id',newId);
+		$(cln).find('#hangup').attr('id','hangup-'+session.number);
+		$(cln).find('#facetime').attr('id','facetime-'+session.number);
+		$(cln).find('#close').click(function(){
+			videoChat.remove();
+		});
 
-    } );
+		PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
+	        session.hangup();
+	        $(cln).find('#close').show();
+	    } );
+	    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
+	  	     phone.dial(session.number);
 
-	console.log(newId);
-	var video_out = PUBNUB.$(newId);
-	video_out.innerHTML = '';
-    video_out.appendChild(session.video);
+	    } );
 
+		console.log(newId);
+		var video_out = PUBNUB.$(newId);
+		video_out.innerHTML = '';
+	    video_out.appendChild(session.video);
+	}
  	setLocalVideo();
     console.log("Hi!");
 }
