@@ -27,11 +27,11 @@ function createVideoPhone(){
 	    session.ended(ended);
 	});
 	$('#phone-on').hide();
-	$('#call-option').show();
+	$('#call').show();
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
 		phone=null;
-		$('#call-option').hide();
+		$('#call').hide();
 		$('#phone-on').show();
 	});
 }
@@ -54,11 +54,11 @@ function createAudioPhone(){
 	    session.ended(ended);
 	});
 	$('#phone-on').hide();
-	$('#call-option').show();
+	$('#call').show();
 	$('#phone-off').show();
 	$('#phone-off').click(function(){
 		phone=null;
-		$('#call-option').hide();
+		$('#call').hide();
 		$('#phone-on').show();
 	});
 }
