@@ -77,8 +77,8 @@ function ended(session){
 	console.log('Bye '+session.number);
 	var ele = '#video-display-'+session.number;
 	$(ele).html('<span class="glyphicon glyphicon-facetime-video"></span>') ;
-	$(ele).find('#close').show();
-	$(ele).find('#close').click(function(){
+	$(ele).parent().find('#close').show();
+	$(ele).parent().find('#close').click(function(){
 		$(ele).parent().remove();
 	});
 }
