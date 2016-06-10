@@ -27,21 +27,21 @@ function createVideoPhone(){
 	    session.connected(VideoConnected);
 	    session.ended(VideoEnded);
 	});
-	$('#phone-on').hide();
+	//$('#phone-on').hide();
 	$('#call').show();
-	$('#phone-off').show();
-	$('#phone-off').click(function(){
-		phone=null;
-		phone = window.phone = PHONE({
-	        number        : 'x',
-	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
-	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
-	        ssl           : true,
-   		 });
-		$('#call').hide();
-		$('#phone-on').show();
-		$('#phone-off').hide();
-	});
+	// $('#phone-off').show();
+	// $('#phone-off').click(function(){
+	// 	phone=null;
+	// 	phone = window.phone = PHONE({
+	//         number        : 'x',
+	//         publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
+	//         subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
+	//         ssl           : true,
+ //   		 });
+	// 	$('#call').hide();
+	// 	$('#phone-on').show();
+	// 	$('#phone-off').hide();
+	// });
 }
 function createAudioPhone(){
 	var phoneNumber = userFBID;
@@ -61,20 +61,20 @@ function createAudioPhone(){
 	    session.connected(AudioConnected);
 	    session.ended(AudioEnded);
 	});
-	$('#phone-on').hide();
+	//$('#phone-on').hide();
 	$('#call').show();
-	$('#phone-off').show();
-	$('#phone-off').click(function(){
-		phone=null;
-		phone = window.phone = PHONE({
-	        number        : 'x',
-	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
-	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
-	        ssl           : true,
-   		 });
-		$('#call').hide();
-		$('#phone-on').show();
-	});
+	// $('#phone-off').show();
+	// $('#phone-off').click(function(){
+	// 	phone=null;
+	// 	phone = window.phone = PHONE({
+	//         number        : 'x',
+	//         publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
+	//         subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
+	//         ssl           : true,
+ //   		 });
+	// 	$('#call').hide();
+	// 	$('#phone-on').show();
+	// });
 }
 function makeCall(){
 	setLocalVideo();
