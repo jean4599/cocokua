@@ -158,7 +158,7 @@ function AudioConnected(session) {
     PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('hangup-'+session.number), function() {
 	        session.hangup();
     } );
-    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('facetime-'+session.number), function() {
+    PUBNUB.bind( 'mousedown,touchstart', PUBNUB.$('earphone-'+session.number), function() {
   	     phone.dial(session.number);
 
     } );
