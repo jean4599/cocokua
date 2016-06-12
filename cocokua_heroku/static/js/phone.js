@@ -13,8 +13,8 @@ function createVideoPhone(){
 	var phoneNumber = userFBID;
 	phone = window.phone = PHONE({
 	        number        : phoneNumber,
-	        publish_key   : 'pub-c-9295f055-f256-4e51-9317-ba3b363a0769',
-	        subscribe_key : 'sub-c-7577b584-ba0a-11e5-8365-02ee2ddab7fe',
+	        publish_key   : 'pub-c-e49a7f87-3523-474f-8342-b1a913fe8963',
+	        subscribe_key : 'sub-c-08dadbe6-30ab-11e6-be83-0619f8945a4f',
 	        ssl           : true,
 	        media         : { audio : true, video : true},
     });
